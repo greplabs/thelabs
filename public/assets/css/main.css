@@ -85,8 +85,8 @@ a:after {
 .navbar {
 	font-weight: 800;
 	font-size: 14px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .navbar-inverse {
@@ -101,13 +101,13 @@ a:after {
 .navbar-inverse .navbar-brand {
 	color: #999999;
 	font-weight: bolder;
-	font-size: 22px;
+	font-size: 20px;
 	letter-spacing: 1px;
 }
 
 .navbar-inverse .navbar-brand i {
 	color: #428bca;
-	font-size: 22px;
+	font-size: 20px;
 	letter-spacing: 1px;
 }
 
@@ -135,11 +135,11 @@ a:after {
 #headerwrap {
 	background: url(../img/header-bg.jpg) no-repeat center top;
 	margin-top: -10px;
-	padding-top:20px;
+	padding-top: 50px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 500px;
+	min-height: 650px;
 	width: 100%;
 
     -webkit-background-size: 100%;
@@ -184,8 +184,8 @@ a:after {
 /* Light Grey */
 #lg {
 	background: #ebebeb;
-	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	text-align: center;
 }
 
