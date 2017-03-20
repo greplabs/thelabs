@@ -90,8 +90,8 @@ a:after {
 }
 
 .navbar-inverse {
-	background: #2d2d2d;
-	border-color: #2d2d2d;
+	background: #000000;
+	border-color: #000000;
 }
 
 .navbar-inverse .navbar-nav > .active > a {
@@ -231,7 +231,7 @@ a:after {
 
 /* Footer Wrap */
 #f {
-	background: #2d2d2d;
+	background: #000000;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
