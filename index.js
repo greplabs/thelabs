@@ -13,6 +13,10 @@ app.get('/', function(request, response) {
   response.render('public/index.html');
 });
 
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+  res.send('eTkh0BKyCCDp2wxjcW2xEXVzqTBUv3paYY_aepZb3YM.aSlo6fodsx3IxhSZiebSQCHJp8DIZyYfqxjLubxwee4)
+})
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
