@@ -11,6 +11,7 @@ import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
+import { Image } from "@nextui-org/image";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -26,8 +27,6 @@ import {
 	HeartFilledIcon,
 	SearchIcon,
 } from "@/components/icons";
-
-import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
 	const searchInput = (
@@ -56,7 +55,7 @@ export const Navbar = () => {
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<Logo />
+						<Image width={30} height={30} src='/grepavatar.svg' />
 						<p className="font-bold text-inherit">Grep Labs</p>
 					</NextLink>
 				</NavbarBrand>

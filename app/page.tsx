@@ -1,3 +1,4 @@
+"use client";
 import NextLink from "next/link";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
@@ -6,6 +7,7 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import { Image } from "@nextui-org/image";
 
 export default function Home() {
   return (
@@ -24,6 +26,16 @@ export default function Home() {
         </h2>
       </div>
 
+      <div className="flex flex-col gap-3">
+        <Image
+          loading="eager"
+          isZoomed
+          isBlurred
+          width={800}
+          alt="Grep Hippo!"
+          src="/grephippo.png"
+        />
+      </div>
       <div className="flex gap-3">
         <Link
           isExternal
