@@ -63,7 +63,7 @@ export const siteConfig = {
 		github: "https://github.com/greplabs",
 		twitter: "https://twitter.com/greplabs",
 		docs: "https://docs.grelabs.com",
-		discord: "",
+		discord: "https://discord.gg/eH5HVWYv",
     sponsor: ""
 	},
 };

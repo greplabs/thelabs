@@ -17,8 +17,8 @@ export default function Home() {
         <h1 className={title({ color: "violet" })}>working&nbsp;</h1>
         <br />
         <h1 className={title()}>
-          to build <div className={title({ color: "blue" })}>Beautiful</div>,{" "}
-          <div className={title({ color: "violet" })}>Blazingly</div> fast
+          to build <div className={title({ color: "blue" })}>beautiful</div>,{" "}
+          <div className={title({ color: "violet" })}>blazingly</div> fast
           internet.
         </h1>
         <h2 className={subtitle({ class: "mt-4" })}>
