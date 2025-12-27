@@ -5,38 +5,25 @@ const products = [
   {
     id: 'grepcoin',
     name: 'GrepCoin',
-    tagline: 'AI-Built Crypto Arcade',
-    description: 'Play developer-themed games and earn GREP tokens',
-    rating: 4.8,
-    reviews: 234,
-    users: '10K+',
+    tagline: 'Developer Arcade on Base L2',
+    description: 'Play 9 arcade games and earn GREP tokens on Base L2',
+    rating: null,
+    reviews: 0,
+    users: 'Live',
     status: 'Live',
     category: 'Gaming',
     url: 'https://grepcoin.io',
     icon: '🎮',
   },
   {
-    id: 'chai',
-    name: 'Chai.im',
-    tagline: 'Military-Grade Encrypted Messaging',
-    description: 'Signal Protocol messaging with hardware key authentication',
-    rating: null,
-    reviews: 0,
-    users: 'Beta',
-    status: 'Beta',
-    category: 'Communication',
-    url: '#',
-    icon: '💬',
-  },
-  {
     id: 'shields',
     name: 'Shields AI',
     tagline: 'AI-Powered DNS Protection',
-    description: 'Lightweight DNS security with ML threat detection',
+    description: 'ML-powered DNS security with sub-millisecond latency',
     rating: null,
     reviews: 0,
-    users: 'Coming Soon',
-    status: 'Development',
+    users: 'Flagship',
+    status: 'Flagship',
     category: 'Security',
     url: '#',
     icon: '🛡️',
@@ -48,11 +35,24 @@ const products = [
     description: 'Local-first file organizer with AI semantic search',
     rating: null,
     reviews: 0,
-    users: 'Coming Soon',
+    users: 'Development',
     status: 'Development',
     category: 'Productivity',
     url: '#',
     icon: '🦛',
+  },
+  {
+    id: 'chai',
+    name: 'Chai.im',
+    tagline: 'Enterprise Encrypted Messaging',
+    description: 'HIPAA-ready secure messaging for regulated industries',
+    rating: null,
+    reviews: 0,
+    users: 'Enterprise Beta',
+    status: 'Enterprise Beta',
+    category: 'Communication',
+    url: '#',
+    icon: '💬',
   },
 ]
 
@@ -113,9 +113,11 @@ export default function AppStorePage() {
                   </div>
                 </div>
                 <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-                  product.status === 'Live' 
+                  product.status === 'Live'
                     ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                    : product.status === 'Beta'
+                    : product.status === 'Flagship'
+                    ? 'bg-gradient-to-r from-green-100 to-cyan-100 dark:from-green-900/30 dark:to-cyan-900/30 text-green-700 dark:text-green-400'
+                    : product.status === 'Enterprise Beta'
                     ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
                 }`}>

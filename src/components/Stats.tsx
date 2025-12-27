@@ -12,10 +12,10 @@ export default function Stats() {
   }, [])
 
   const stats = [
-    { value: '500M', label: 'GREP Tokens', sublabel: 'Total token supply', gradient: 'from-grep-purple to-grep-pink' },
-    { value: '9', label: 'Arcade Games', sublabel: 'Live on GrepCoin', gradient: 'from-grep-blue to-grep-cyan' },
-    { value: '<1ms', label: 'Query Latency', sublabel: 'Shields AI target', gradient: 'from-grep-green to-grep-cyan' },
-    { value: '100K+', label: 'File Capacity', sublabel: 'Hippo indexing', gradient: 'from-grep-orange to-grep-yellow' },
+    { value: '4', label: 'Products', sublabel: 'Privacy-first tools', gradient: 'from-grep-purple to-grep-pink' },
+    { value: '9', label: 'Arcade Games', sublabel: 'Built on GrepCoin', gradient: 'from-grep-blue to-grep-cyan' },
+    { value: 'Open', label: 'Core Model', sublabel: 'MIT/Apache licensed', gradient: 'from-grep-green to-grep-cyan' },
+    { value: 'Local', label: 'First Approach', sublabel: 'Your data stays yours', gradient: 'from-grep-orange to-grep-yellow' },
   ]
 
   if (!mounted) {

@@ -16,7 +16,7 @@ const caseStudies = [
       '91 API endpoints and 112 React components',
       '500M GREP token supply with balanced tokenomics',
       '4-tier staking system with real yield',
-      'Active Discord community (100+ members)',
+      'Discord community established',
     ],
     tech: ['Next.js 15', 'Solidity', 'Base L2', 'Prisma', 'PostgreSQL', 'React'],
     gradient: 'from-grep-purple/20 to-grep-pink/20',

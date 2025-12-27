@@ -148,7 +148,7 @@ Unlike failed P2E projects, GrepCoin focuses on genuine entertainment value. Tok
       apiEndpoints: '91',
       components: '112',
       smartContracts: '4',
-      community: '100+ Discord members',
+      community: 'Discord community',
     },
     tech: ['Next.js 15', 'Solidity', 'Base L2', 'PostgreSQL', 'Prisma', 'Web3.js'],
     revenue: {
@@ -167,7 +167,7 @@ Unlike failed P2E projects, GrepCoin focuses on genuine entertainment value. Tok
         'Deployed 4 smart contracts (Token, Staking, Achievements, Governance)',
         'Created 91 RESTful API endpoints',
         'Built 112 reusable React components',
-        'Established Discord community (100+ members)',
+        'Established Discord community',
         'Designed balanced tokenomics (500M fixed supply)',
       ],
     },

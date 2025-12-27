@@ -27,11 +27,12 @@ export default function Vision() {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-gray-900 dark:text-white mb-6">
             Open Core,
             <br />
-            <span className="gradient-text">Enterprise Ready</span>
+            <span className="gradient-text">Privacy First</span>
           </h2>
           <p className="text-xl md:text-2xl font-light text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            We build privacy-first software with an open-core model. Our core engines are open source
-            and auditable, while our polished applications and enterprise features are commercially licensed.
+            We're building the next generation of privacy-respecting software. Our plan: develop core engines as open source
+            for transparency and community contribution, while commercially licensing polished applications
+            to sustain development and provide the experience you deserve.
           </p>
         </motion.div>
 
@@ -133,6 +134,42 @@ export default function Vision() {
                   <li>• Priority support & SLAs</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Concrete Plan */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="max-w-5xl mx-auto mt-20"
+        >
+          <h3 className="text-3xl md:text-4xl font-extralight text-gray-900 dark:text-white mb-12 text-center">
+            Our Plan
+          </h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-8">
+              <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Phase 1</div>
+              <h4 className="text-xl font-light text-gray-900 dark:text-white mb-4">Build & Validate</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                Develop core products, validate market fit, and build initial user base. Focus on Shields AI as flagship product with clearest path to revenue.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-8">
+              <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Phase 2</div>
+              <h4 className="text-xl font-light text-gray-900 dark:text-white mb-4">Open Source Core</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                Release core engines as open source (MIT/Apache). Build community around our technology. Accept contributions and security audits.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-8">
+              <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Phase 3</div>
+              <h4 className="text-xl font-light text-gray-900 dark:text-white mb-4">Scale & Enterprise</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                Launch enterprise offerings. Provide managed services, priority support, and custom integrations for organizations with compliance needs.
+              </p>
             </div>
           </div>
         </motion.div>

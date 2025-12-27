@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { Github, Twitter, MessageSquare, Users, Code, Heart, ArrowRight, Sparkles } from 'lucide-react'
 
 const communityStats = [
-  { label: 'GitHub Stars', value: '2.4K+', icon: Github },
-  { label: 'Contributors', value: '150+', icon: Users },
-  { label: 'Discussions', value: '500+', icon: MessageSquare },
-  { label: 'Projects', value: '12+', icon: Code },
+  { label: 'Products', value: '4', icon: Code },
+  { label: 'Open Source', value: 'Core', icon: Github },
+  { label: 'Focus', value: 'Privacy', icon: Users },
+  { label: 'Model', value: 'Open Core', icon: MessageSquare },
 ]
 
 const waysToContribute = [
@@ -42,12 +42,6 @@ const waysToContribute = [
   },
 ]
 
-const recentContributions = [
-  { project: 'GrepCoin', contribution: 'Tournament system enhancement', contributor: '@alice_dev' },
-  { project: 'Chai.im', contribution: 'FIDO2 authentication improvements', contributor: '@crypto_secure' },
-  { project: 'Shields AI', contribution: 'ML model optimization', contributor: '@ml_engineer' },
-  { project: 'Hippo', contribution: 'Vector search improvements', contributor: '@search_expert' },
-]
 
 export default function Community() {
   return (
@@ -76,7 +70,7 @@ export default function Community() {
             <span className="gradient-text">Community</span>
           </h2>
           <p className="text-xl font-light text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Building privacy-first software is a collaborative effort. Join thousands of developers, users, and contributors.
+            We're building privacy-first software and we welcome contributors. Join us in building the next generation of privacy-respecting tools.
           </p>
         </motion.div>
 
@@ -141,37 +135,6 @@ export default function Community() {
                 </motion.div>
               )
             })}
-          </div>
-        </div>
-
-        {/* Recent Contributions */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-extralight text-gray-900 dark:text-white mb-8 text-center">
-            Recent Contributions
-          </h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            {recentContributions.map((contrib, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all"
-              >
-                <div className="flex items-start justify-between gap-4 mb-2">
-                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
-                    {contrib.project}
-                  </span>
-                  <span className="text-sm text-gray-500 dark:text-gray-400 font-mono">
-                    {contrib.contributor}
-                  </span>
-                </div>
-                <p className="text-gray-900 dark:text-white font-light">
-                  {contrib.contribution}
-                </p>
-              </motion.div>
-            ))}
           </div>
         </div>
 
