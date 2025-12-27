@@ -9,12 +9,11 @@ import TerminalCursor from './TerminalCursor'
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white dark:bg-black overflow-hidden">
-      {/* Animated gradient background */}
+      {/* Minimal background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-grep-purple/10 to-grep-pink/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-grep-orange/10 to-grep-pink/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-grep-purple/5 via-grep-pink/5 to-grep-orange/5 rounded-full blur-3xl"></div>
+        {/* Subtle grey gradient */}
+        <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-gray-50 to-transparent dark:from-gray-950 dark:to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-50 to-transparent dark:from-gray-950 dark:to-transparent"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto text-center z-10">
@@ -40,10 +39,10 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-grep-purple/10 via-grep-pink/10 to-grep-orange/10 border border-grep-purple/20 dark:border-grep-purple/30 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 mb-8"
           >
-            <Sparkles className="w-4 h-4 text-grep-purple dark:text-grep-pink" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">GrepLabs LLC</span>
+            <Sparkles className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">GrepLabs LLC</span>
           </motion.div>
 
           {/* Main heading with terminal style */}
@@ -187,7 +186,7 @@ export default function Hero() {
             className="flex flex-col items-center gap-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors group"
           >
             <span className="text-xs font-light">scroll</span>
-            <ArrowDown className="w-4 h-4 group-hover:text-grep-purple dark:group-hover:text-grep-pink transition-colors" />
+            <ArrowDown className="w-4 h-4 group-hover:text-gray-600 dark:group-hover:text-gray-200 transition-colors" />
           </motion.a>
         </motion.div>
       </div>

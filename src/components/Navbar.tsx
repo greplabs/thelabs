@@ -30,7 +30,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/fund"
-                  className="px-4 py-2 bg-gradient-to-r from-grep-purple to-grep-pink text-white rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+                  className="px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
                 >
                   Fund Us
                 </Link>
@@ -82,7 +82,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/fund"
-              className="block px-4 py-2 bg-gradient-to-r from-grep-purple to-grep-pink text-white rounded-full font-medium transition-colors text-center"
+              className="block px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
               Fund Us
