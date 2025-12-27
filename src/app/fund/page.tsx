@@ -360,14 +360,14 @@ export default function FundPage() {
 
         {/* Links */}
         <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-wrap gap-6 justify-center text-sm">
-          <Link href="/open-revenue-strategy" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-            Open Revenue Strategy
-          </Link>
-          <Link href="/monetization" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-            Monetization Model
-          </Link>
           <Link href="/open-source" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-            Open Source Commitment
+            Open-Core Licensing
+          </Link>
+          <Link href="/security" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+            Security & Privacy
+          </Link>
+          <Link href="/docs" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+            Documentation
           </Link>
         </div>
       </div>

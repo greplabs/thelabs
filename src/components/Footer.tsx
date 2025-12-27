@@ -16,8 +16,8 @@ export default function Footer() {
 
   const company = [
     { name: 'Fund Us', url: '/fund' },
-    { name: 'About', url: '/about' },
-    { name: 'Careers', url: '/careers' },
+    { name: 'Open Source', url: '/open-source' },
+    { name: 'Security', url: '/security' },
     { name: 'Contact', url: 'mailto:hello@greplabs.com' },
   ]
 

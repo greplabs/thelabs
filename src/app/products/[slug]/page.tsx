@@ -823,11 +823,11 @@ export default async function ProductPage({
                   </div>
                 )}
                 <Link
-                  href="/open-revenue-strategy"
+                  href="/open-source"
                   className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded-full font-medium hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
                 >
-                  <DollarSign className="w-5 h-5" />
-                  Revenue Model
+                  <Code className="w-5 h-5" />
+                  Licensing Model
                 </Link>
               </div>
 
@@ -1071,14 +1071,14 @@ export default async function ProductPage({
                 </div>
                 <div>
                   <Link
-                    href="/open-revenue-strategy"
+                    href="/open-source"
                     className="inline-flex items-center gap-2 text-gray-900 dark:text-white hover:text-grep-purple dark:hover:text-grep-pink transition-colors font-medium"
                   >
-                    View Complete Revenue Strategy
+                    View Licensing Model
                     <ExternalLink className="w-4 h-4" />
                   </Link>
                   <p className="text-sm text-gray-600 dark:text-gray-400 font-light mt-2">
-                    See exactly how revenue is allocated across all products
+                    See our open-core licensing approach
                   </p>
                 </div>
               </div>
@@ -1133,10 +1133,10 @@ export default async function ProductPage({
             </div>
             <div className="text-center">
               <Link
-                href="/incubation-stories"
+                href="/blog"
                 className="inline-flex items-center gap-2 text-gray-900 dark:text-white hover:text-grep-purple dark:hover:text-grep-pink transition-colors font-medium"
               >
-                Read Full Incubation Story
+                Read More on Our Blog
                 <ExternalLink className="w-4 h-4" />
               </Link>
             </div>

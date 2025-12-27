@@ -151,24 +151,24 @@ export default function Hero() {
             className="flex flex-wrap items-center justify-center gap-6 text-sm"
           >
             <Link
-              href="/business-plan"
+              href="/docs"
               className="text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
             >
-              Business Plan
-            </Link>
-            <span className="text-gray-300 dark:text-gray-700">•</span>
-            <Link
-              href="/monetization"
-              className="text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
-            >
-              Monetization
+              Documentation
             </Link>
             <span className="text-gray-300 dark:text-gray-700">•</span>
             <Link
               href="/open-source"
               className="text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
             >
-              Open Source
+              Open-Core Licensing
+            </Link>
+            <span className="text-gray-300 dark:text-gray-700">•</span>
+            <Link
+              href="/blog"
+              className="text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
+            >
+              Blog
             </Link>
           </motion.div>
         </motion.div>

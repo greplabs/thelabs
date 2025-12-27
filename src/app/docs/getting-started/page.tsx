@@ -254,11 +254,11 @@ console.log('Usage:', status.usage);`}
           <h2 className="text-2xl font-light text-gray-900 dark:text-white mb-6">Next Steps</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <Link
-              href="/docs/api"
+              href="/docs"
               className="flex items-center gap-3 p-4 bg-white dark:bg-black rounded-xl hover:shadow-lg transition-shadow"
             >
               <ArrowRight className="w-5 h-5 text-grep-purple dark:text-grep-pink" />
-              <span className="text-gray-900 dark:text-white font-light">Explore the full API Reference</span>
+              <span className="text-gray-900 dark:text-white font-light">Explore the full Documentation</span>
             </Link>
             <Link
               href="/blog"

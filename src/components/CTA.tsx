@@ -50,10 +50,10 @@ export default function CTA() {
             </Link>
 
             <Link
-              href="/business-plan"
+              href="/open-source"
               className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/20 hover:border-white/40 text-white rounded-full font-medium transition-all"
             >
-              View Business Plan
+              Our Open-Core Model
             </Link>
           </div>
 

@@ -184,16 +184,16 @@ export default function AppStorePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/monetization"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-900 dark:border-white rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              Monetization Strategy
-            </Link>
-            <Link
               href="/open-source"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-900 dark:border-white rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
-              Open Source Strategy
+              Open-Core Licensing
+            </Link>
+            <Link
+              href="/docs"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-900 dark:border-white rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              Documentation
             </Link>
           </div>
         </div>
