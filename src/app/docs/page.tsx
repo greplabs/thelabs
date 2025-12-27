@@ -7,36 +7,36 @@ export default function DocsPage() {
       name: 'Shields AI',
       icon: Shield,
       description: 'DNS security API for threat detection and filtering',
-      href: '/docs/shields',
+      href: '/products/shields',
       color: 'from-grep-green to-grep-cyan',
     },
     {
       name: 'Hippo',
       icon: Folder,
       description: 'File indexing and semantic search API',
-      href: '/docs/hippo',
+      href: '/products/hippo',
       color: 'from-grep-orange to-grep-yellow',
     },
     {
       name: 'Chai.im',
       icon: MessageSquare,
       description: 'Encrypted messaging integration API',
-      href: '/docs/chai',
+      href: '/products/chai',
       color: 'from-grep-blue to-grep-cyan',
     },
     {
       name: 'GrepCoin',
       icon: Gamepad2,
       description: 'Gaming platform and rewards API',
-      href: '/docs/grepcoin',
+      href: '/products/grepcoin',
       color: 'from-grep-purple to-grep-pink',
     },
   ]
 
   const quickLinks = [
     { name: 'Getting Started', href: '/docs/getting-started', icon: Book },
-    { name: 'API Reference', href: '/docs/api', icon: Code },
-    { name: 'SDKs & Libraries', href: '/docs/sdks', icon: Terminal },
+    { name: 'Open Source', href: '/open-source', icon: Code },
+    { name: 'GitHub', href: 'https://github.com/greplabs', icon: Terminal, external: true },
   ]
 
   return (
@@ -69,15 +69,23 @@ export default function DocsPage() {
         <div className="grid md:grid-cols-3 gap-4 mb-16">
           {quickLinks.map((link) => {
             const Icon = link.icon
+            const isExternal = 'external' in link && link.external
+            const LinkComponent = isExternal ? 'a' : Link
+            const linkProps = isExternal
+              ? { href: link.href, target: '_blank', rel: 'noopener noreferrer' }
+              : { href: link.href }
             return (
-              <Link
+              <LinkComponent
                 key={link.name}
-                href={link.href}
+                {...linkProps}
                 className="flex items-center gap-4 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-grep-purple dark:hover:border-grep-pink transition-colors group"
               >
                 <Icon className="w-6 h-6 text-gray-500 group-hover:text-grep-purple dark:group-hover:text-grep-pink transition-colors" />
-                <span className="font-light text-gray-900 dark:text-white">{link.name}</span>
-              </Link>
+                <span className="font-light text-gray-900 dark:text-white flex items-center gap-2">
+                  {link.name}
+                  {isExternal && <ExternalLink className="w-4 h-4" />}
+                </span>
+              </LinkComponent>
             )
           })}
         </div>
