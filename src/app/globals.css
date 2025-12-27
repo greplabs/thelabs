@@ -179,6 +179,13 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Account for fixed navbar */
   overflow-x: hidden;
+  font-size: 87.5%; /* 14px base - more compact layout */
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 93.75%; /* 15px on larger screens */
+  }
 }
 
 body {
