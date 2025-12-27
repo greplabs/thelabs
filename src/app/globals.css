@@ -1,0 +1,400 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --border: 0 0% 89.8%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+  }
+
+  /* Better box-sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Improved body styling */
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Terminal-style utilities */
+  .terminal-text {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .terminal-prompt {
+    color: #10B981; /* grep-green */
+  }
+
+  .terminal-comment {
+    color: #6B7280; /* gray-500 */
+    font-style: italic;
+  }
+
+  .terminal-keyword {
+    color: #8B5CF6; /* grep-purple */
+  }
+
+  .terminal-string {
+    color: #EC4899; /* grep-pink */
+  }
+
+  .terminal-function {
+    color: #3B82F6; /* grep-blue */
+  }
+
+  /* Gradient text variations */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-grep-purple via-grep-pink to-grep-orange;
+  }
+
+  .gradient-text-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-grep-blue via-grep-cyan to-grep-green;
+  }
+
+  .gradient-text-terminal {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-grep-green via-grep-cyan to-grep-blue;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  .gradient-text-logo {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-grep-purple via-grep-pink to-grep-orange;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-bg-primary {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F97316 100%);
+  }
+
+  .gradient-bg-subtle {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 50%, rgba(249, 115, 22, 0.05) 100%);
+  }
+
+  .gradient-border {
+    border: 1px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #8B5CF6, #EC4899, #F97316) border-box;
+  }
+
+  .gradient-border-dark {
+    border: 1px solid transparent;
+    background: linear-gradient(black, black) padding-box,
+                linear-gradient(135deg, #8B5CF6, #EC4899, #F97316) border-box;
+  }
+
+  /* Terminal window style */
+  .terminal-window {
+    background: #0D0D12;
+    border: 1px solid #24242F;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+
+  .terminal-header {
+    background: #13131A;
+    border-bottom: 1px solid #24242F;
+    padding: 8px 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .terminal-body {
+    padding: 16px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #E5E7EB;
+    overflow-x: auto;
+  }
+
+  /* Code block styling */
+  .code-block {
+    background: #0D0D12;
+    border: 1px solid #24242F;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Glow effects */
+  .glow-purple {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.2);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.2);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+  }
+}
+
+/* Smooth scrolling with better behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed navbar */
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom scrollbar - elegant with terminal feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8B5CF6, #EC4899);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #A78BFA, #F472B6);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8B5CF6, #EC4899);
+  background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #A78BFA, #F472B6);
+  background-clip: padding-box;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(139, 92, 246, 0.2);
+  color: inherit;
+}
+
+.dark ::selection {
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* Focus visible styling */
+:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ASCII art styling */
+.ascii-art {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+  white-space: pre;
+  overflow-x: auto;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .ascii-art {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ascii-art {
+    font-size: 0.85rem;
+  }
+}
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: #10B981;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* Better container alignment */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Improve text rendering */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+}
+
+/* Better image alignment */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth page transitions */
+main {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Better list styling */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Improve link styling */
+a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Better button focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Improve spacing consistency */
+section {
+  position: relative;
+}
+
+/* Better code block alignment */
+pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}

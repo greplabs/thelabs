@@ -1,0 +1,80 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main gradient - purple to pink to orange -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+
+    <!-- Glasses gradient - green to cyan -->
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+
+    <!-- Subtle shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- ===== HIPPO HEAD - Wide barrel shape ===== -->
+
+  <!-- Main head - very wide, barrel-shaped like a real hippo -->
+  <ellipse cx="70" cy="50" rx="55" ry="38" fill="url(#mainGradient)" filter="url(#shadow)"/>
+
+  <!-- Inner highlight for depth -->
+  <ellipse cx="70" cy="46" rx="50" ry="34" fill="#EC4899" opacity="0.5"/>
+
+  <!-- ===== EARS - Small, on TOP of head like a hippo ===== -->
+  <ellipse cx="28" cy="28" rx="8" ry="10" fill="#8B5CF6"/>
+  <ellipse cx="28" cy="28" rx="5" ry="6" fill="#EC4899" opacity="0.6"/>
+  <ellipse cx="112" cy="28" rx="8" ry="10" fill="#F97316"/>
+  <ellipse cx="112" cy="28" rx="5" ry="6" fill="#EC4899" opacity="0.6"/>
+
+  <!-- ===== MASSIVE SNOUT - The distinctive hippo feature ===== -->
+  <!-- Hippos have a huge, wide, flat snout -->
+  <ellipse cx="70" cy="72" rx="38" ry="22" fill="#8B5CF6" opacity="0.85"/>
+  <ellipse cx="70" cy="70" rx="34" ry="18" fill="#EC4899" opacity="0.4"/>
+
+  <!-- ===== NOSTRILS - On TOP of snout (hippos breathe while submerged) ===== -->
+  <ellipse cx="58" cy="65" rx="5" ry="6" fill="#1a1a2e"/>
+  <ellipse cx="82" cy="65" rx="5" ry="6" fill="#1a1a2e"/>
+
+  <!-- ===== EYES - Wide-set, positioned high on head ===== -->
+  <!-- Hippo eyes sit on top of head so they can see above water -->
+  <circle cx="42" cy="38" r="11" fill="white"/>
+  <circle cx="98" cy="38" r="11" fill="white"/>
+
+  <!-- Pupils - looking slightly up and to the side -->
+  <circle cx="44" cy="37" r="6" fill="#1a1a2e"/>
+  <circle cx="100" cy="37" r="6" fill="#1a1a2e"/>
+
+  <!-- Eye shine -->
+  <circle cx="46" cy="35" r="2.5" fill="white"/>
+  <circle cx="102" cy="35" r="2.5" fill="white"/>
+
+  <!-- ===== GLASSES - Coder aesthetic ===== -->
+  <rect x="29" y="26" width="26" height="22" rx="4" fill="none" stroke="url(#glassGradient)" stroke-width="3"/>
+  <rect x="85" y="26" width="26" height="22" rx="4" fill="none" stroke="url(#glassGradient)" stroke-width="3"/>
+
+  <!-- Bridge - curved to fit hippo's wide head -->
+  <path d="M55 37 Q70 32 85 37" stroke="url(#glassGradient)" stroke-width="3" fill="none"/>
+
+  <!-- ===== TERMINAL BAR with GREPLABS text ===== -->
+  <rect x="10" y="100" width="120" height="28" rx="5" fill="#1a1a2e"/>
+
+  <!-- Terminal dots -->
+  <circle cx="22" cy="108" r="3" fill="#EF4444"/>
+  <circle cx="32" cy="108" r="3" fill="#FBBF24"/>
+  <circle cx="42" cy="108" r="3" fill="#10B981"/>
+
+  <!-- GREPLABS text -->
+  <text x="70" y="121" fill="url(#glassGradient)" font-size="12" font-family="monospace" font-weight="700" text-anchor="middle">GREPLABS</text>
+
+  <!-- Blinking cursor -->
+  <rect x="118" y="105" width="3" height="14" rx="1" fill="#10B981">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
