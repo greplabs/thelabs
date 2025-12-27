@@ -1,21 +1,21 @@
-# GrepLabs LLC - Portfolio Website
+# GrepLabs Website
 
-The official portfolio website for GrepLabs LLC showcasing our four innovative products.
+The official website for GrepLabs — building privacy-first, AI-powered software.
 
 ## Products
 
-1. **GrepCoin** - AI-built crypto arcade gaming platform
-2. **Chai.im** - Military-grade encrypted messaging
-3. **Shields AI** - AI-powered DNS protection
-4. **Hippo** - Local-first file organizer
+- **Shields AI** — AI-powered DNS security and privacy protection
+- **Hippo** — Local-first semantic file search with AI
+- **Chai.im** — End-to-end encrypted messaging
+- **GrepCoin** — Developer arcade on Base L2
 
 ## Tech Stack
 
-- Next.js 15 (App Router)
-- React 18
-- TypeScript
-- Tailwind CSS
-- Framer Motion
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
 
 ## Getting Started
 
@@ -28,24 +28,22 @@ npm run dev
 
 # Build for production
 npm run build
-
-# Start production server
-npm start
 ```
 
-## Domains
+## Open-Core Model
 
-- **Main Site**: greplab.com, greplabs.com
-- **GrepCoin**: grepcoin.io
-- **Chai.im**: chai.im
+We build with an open-core model:
+- **Open Source (MIT/Apache)**: Core engines, libraries, CLIs, SDKs
+- **Commercial**: Desktop/mobile apps, enterprise features, premium support
 
-## Deployment
+Learn more at [/open-source](https://greplabs.com/open-source)
 
-Deploy to Vercel:
+## License
 
-```bash
-vercel
-```
+This website is proprietary. Core product engines are open source under MIT/Apache licenses.
 
-Or configure CI/CD through GitHub Actions.
+## Links
 
+- Website: [greplabs.com](https://greplabs.com)
+- GitHub: [github.com/greplabs](https://github.com/greplabs)
+- Contact: hello@greplabs.com
