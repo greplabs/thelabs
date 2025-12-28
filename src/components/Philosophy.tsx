@@ -15,8 +15,8 @@ const philosophies = [
       'The core functionality is free and open. Premium features provide value while funding continued development.',
     ],
     link: '/open-source',
-    gradient: 'from-grep-purple/10 to-grep-pink/10',
-    borderColor: 'border-grep-purple/20',
+    gradient: 'from-purple-500/10 to-pink-500/10',
+    borderColor: 'border-purple-500/20',
   },
   {
     icon: Users,
@@ -28,8 +28,8 @@ const philosophies = [
       'This model democratizes access while creating sustainable revenue streams.',
     ],
     link: '/freemium',
-    gradient: 'from-grep-blue/10 to-grep-cyan/10',
-    borderColor: 'border-grep-blue/20',
+    gradient: 'from-blue-500/10 to-cyan-500/10',
+    borderColor: 'border-blue-500/20',
   },
   {
     icon: Shield,
@@ -41,8 +41,8 @@ const philosophies = [
       'Minimal data collection, maximum transparency.',
     ],
     link: '/privacy',
-    gradient: 'from-grep-green/10 to-grep-cyan/10',
-    borderColor: 'border-grep-green/20',
+    gradient: 'from-green-500/10 to-cyan-500/10',
+    borderColor: 'border-green-500/20',
   },
   {
     icon: Zap,
@@ -54,8 +54,8 @@ const philosophies = [
       'Intelligent features that respect user autonomy.',
     ],
     link: '/monetization',
-    gradient: 'from-grep-orange/10 to-grep-yellow/10',
-    borderColor: 'border-grep-orange/20',
+    gradient: 'from-orange-500/10 to-yellow-500/10',
+    borderColor: 'border-orange-500/20',
   },
 ]
 
@@ -64,8 +64,8 @@ export default function Philosophy() {
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-grep-purple/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-grep-pink/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -77,7 +77,7 @@ export default function Philosophy() {
           className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-grep-purple dark:text-grep-pink" />
+            <Sparkles className="w-5 h-5 text-purple-500 dark:text-pink-500" />
             <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Philosophy</span>
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-gray-900 dark:text-white mb-4">
@@ -120,7 +120,7 @@ export default function Philosophy() {
                 <ul className="space-y-2 mb-6">
                   {philosophy.details.map((detail, idx) => (
                     <li key={idx} className="text-sm text-gray-600 dark:text-gray-400 font-light flex items-start gap-2">
-                      <span className="text-grep-purple dark:text-grep-pink mt-1">•</span>
+                      <span className="text-purple-500 dark:text-pink-500 mt-1">•</span>
                       <span>{detail}</span>
                     </li>
                   ))}

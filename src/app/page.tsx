@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Rocket, Sparkles, Zap, Shield, Gamepad2, MessageSquare, Folder } from 'lucide-react'
+import { ArrowRight, Rocket, Sparkles, Shield, Gamepad2, MessageSquare, Folder, Bell } from 'lucide-react'
 import CountdownTimer from '@/components/CountdownTimer'
 import Logo from '@/components/Logo'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
   title: 'GrepLabs - Launching January 1, 2026',
@@ -89,19 +90,28 @@ export default function Home() {
           </div>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
             Privacy-first software. Built for tomorrow.
             <br />
             <span className="text-gray-400 dark:text-gray-500">Four products. One mission. Zero compromise.</span>
           </p>
 
+          {/* Newsletter Signup */}
+          <div className="mb-12">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Bell className="w-5 h-5 text-purple-500" />
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Get notified at launch</span>
+            </div>
+            <NewsletterSignup />
+          </div>
+
           {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="#products"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium transition-all hover:scale-105 hover:shadow-2xl shadow-lg"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-full font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-900"
             >
-              <Rocket className="w-5 h-5" />
+              <Rocket className="w-4 h-4" />
               Preview Products
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -185,6 +195,13 @@ export default function Home() {
           <p className="text-sm text-gray-500 dark:text-gray-400">
             © 2025 GrepLabs LLC. All rights reserved.
           </p>
+          {/* Hidden preview link - accessible at /preview */}
+          <Link
+            href="/preview"
+            className="inline-block mt-4 text-[10px] text-gray-300 dark:text-gray-700 hover:text-gray-500 dark:hover:text-gray-500 transition-colors"
+          >
+            •
+          </Link>
         </div>
       </footer>
     </main>

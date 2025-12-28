@@ -9,28 +9,28 @@ const technologies = [
     title: 'Modern Frameworks',
     description: 'Built with Next.js 15, React 18, and TypeScript for type-safe, performant web applications.',
     stack: ['Next.js 15', 'React 18', 'TypeScript', 'Tailwind CSS'],
-    gradient: 'from-grep-purple/20 to-grep-pink/20',
+    gradient: 'from-purple-500/20 to-pink-500/20',
   },
   {
     icon: Database,
     title: 'Data & Infrastructure',
     description: 'PostgreSQL for structured data, Prisma for type-safe queries, and Redis for high-speed caching.',
     stack: ['PostgreSQL', 'Prisma', 'Redis', 'Vector DBs'],
-    gradient: 'from-grep-blue/20 to-grep-cyan/20',
+    gradient: 'from-blue-500/20 to-cyan-500/20',
   },
   {
     icon: Shield,
     title: 'Security & Cryptography',
     description: 'Signal Protocol for messaging, FIDO2/WebAuthn for authentication, and end-to-end encryption throughout.',
     stack: ['Signal Protocol', 'FIDO2/WebAuthn', 'AES-256-GCM', 'TLS 1.3'],
-    gradient: 'from-grep-green/20 to-grep-cyan/20',
+    gradient: 'from-green-500/20 to-cyan-500/20',
   },
   {
     icon: Zap,
     title: 'AI & Performance',
     description: 'Local AI processing with WebAssembly, TensorFlow.js, and custom models optimized for edge devices.',
     stack: ['WebAssembly', 'TensorFlow.js', 'ONNX', 'Custom Models'],
-    gradient: 'from-grep-orange/20 to-grep-yellow/20',
+    gradient: 'from-orange-500/20 to-yellow-500/20',
   },
 ]
 
@@ -39,8 +39,8 @@ export default function Technology() {
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-grep-green/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-grep-blue/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -52,7 +52,7 @@ export default function Technology() {
           className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-grep-purple dark:text-grep-pink" />
+            <Sparkles className="w-5 h-5 text-purple-500 dark:text-pink-500" />
             <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Technology</span>
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-gray-900 dark:text-white mb-6">
