@@ -1,7 +1,6 @@
 import ProductShowcase from '@/components/ProductShowcase'
 import Hero from '@/components/Hero'
 import Vision from '@/components/Vision'
-import CaseStudies from '@/components/CaseStudies'
 import Community from '@/components/Community'
 import CTA from '@/components/CTA'
 
@@ -16,9 +15,6 @@ export default function Home() {
 
       {/* Vision & Plan Section */}
       <Vision />
-
-      {/* Case Studies Section */}
-      <CaseStudies />
 
       {/* Community Section */}
       <Community />

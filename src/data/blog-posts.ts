@@ -144,7 +144,7 @@ The journey of building GrepCoin taught us that AI isn't replacing human creativ
     id: 'privacy-first-architecture',
     title: 'Designing Privacy-First Architecture',
     excerpt: 'Why local-first processing matters, and how we built Chai.im and Hippo with privacy as a core architectural principle, not an afterthought.',
-    date: 'December 20, 2024',
+    date: 'December 20, 2025',
     category: 'Architecture',
     readTime: '12 min read',
     author: 'GrepLabs Team',
@@ -450,7 +450,7 @@ The future of software is local-first. Join us in building it.
     id: 'open-source-business',
     title: 'The Open Source Business Model',
     excerpt: 'How we balance open-source ideals with sustainable business. Why core open source + freemium works, and how it funds innovation.',
-    date: 'November 18, 2024',
+    date: 'November 18, 2025',
     category: 'Business',
     readTime: '10 min read',
     author: 'GrepLabs Team',
@@ -719,7 +719,7 @@ The key is remembering why open source matters: trust, transparency, and communi
     id: 'shields-ai-deep-dive',
     title: 'Shields AI: Building Sub-Millisecond DNS Security',
     excerpt: 'The technical journey behind our ML-powered DNS protection. From eBPF packet processing to real-time threat detection.',
-    date: 'October 15, 2024',
+    date: 'October 15, 2025',
     category: 'Infrastructure',
     readTime: '15 min read',
     author: 'GrepLabs Team',
@@ -1096,7 +1096,7 @@ The result: sub-millisecond DNS security that catches 99%+ of threats while main
     id: 'local-ai-processing',
     title: 'Local AI Processing: Privacy Without Sacrifice',
     excerpt: 'Bringing powerful AI capabilities to your device. How we use WebAssembly and local models to deliver intelligent features without data collection.',
-    date: 'September 10, 2024',
+    date: 'September 10, 2025',
     category: 'AI/ML',
     readTime: '11 min read',
     author: 'GrepLabs Team',
@@ -1468,7 +1468,7 @@ The technology continues to improve. Every year, we can run more capable models 
     id: 'hippo-semantic-search',
     title: 'Hippo: Building Semantic Search for 100K+ Files',
     excerpt: 'How we built a file organizer that understands meaning, not just keywords. Vector embeddings, local processing, and instant results.',
-    date: 'August 5, 2024',
+    date: 'August 5, 2025',
     category: 'Technology',
     readTime: '13 min read',
     author: 'GrepLabs Team',
@@ -1947,7 +1947,7 @@ The result: search that understands meaning, runs entirely on your device, and r
     id: 'signal-protocol-implementation',
     title: 'Implementing Signal Protocol: A Technical Guide',
     excerpt: 'How we integrated Signal Protocol into Chai.im for end-to-end encrypted messaging. Key exchange, double ratchet, and security considerations.',
-    date: 'July 20, 2024',
+    date: 'July 20, 2025',
     category: 'Security',
     readTime: '14 min read',
     author: 'GrepLabs Team',
@@ -2525,7 +2525,7 @@ Key takeaways:
     id: 'usage-based-pricing',
     title: 'Why We Chose Usage-Based Pricing',
     excerpt: 'Moving from subscriptions to pay-for-what-you-use. How usage-based pricing aligns incentives and makes premium features accessible.',
-    date: 'June 15, 2024',
+    date: 'June 15, 2025',
     category: 'Business',
     readTime: '7 min read',
     author: 'GrepLabs Team',
@@ -2728,7 +2728,7 @@ Usage-based pricing aligns incentives between users and providers. You pay for v
     id: 'rust-for-performance',
     title: 'Why We Build in Rust',
     excerpt: 'Memory safety without garbage collection. Performance without compromise. How Rust enables the speed and reliability our products demand.',
-    date: 'May 10, 2024',
+    date: 'May 10, 2025',
     category: 'Engineering',
     readTime: '9 min read',
     author: 'GrepLabs Team',
@@ -3040,6 +3040,59 @@ For performance-critical, security-sensitive software, Rust is the right choice.
 ---
 
 *Interested in our Rust code? Check out our [open source repositories](https://github.com/greplabs).*
+    `,
+  },
+  {
+    id: 'launch-january-2026',
+    title: 'We\'re Launching January 1, 2026',
+    excerpt: 'After 6 months of intensive development, we\'re ready. Four products, one mission, and a countdown to launch day.',
+    date: 'December 20, 2025',
+    category: 'Company',
+    readTime: '5 min read',
+    author: 'GrepLabs Team',
+    tags: ['Company', 'Launch', 'Announcement'],
+    content: `
+Six months ago, GrepLabs was just an idea. Today, we're counting down to our official launch on January 1, 2026.
+
+## What We Built
+
+Four products, one vision:
+- **Shields AI**: ML-powered DNS security (<1ms latency, 100K+ QPS)
+- **GrepCoin**: 9 arcade games on Base L2 (already live at grepcoin.io)
+- **Chai.im**: Enterprise encrypted messaging (Signal Protocol, HIPAA-ready)
+- **Hippo**: Local-first file organization (100K+ files, AI semantic search)
+
+Every product shares our core principles: privacy-first, local AI processing, open-core licensing, sustainable economics.
+
+## Why January 1?
+
+New year, new products. It's symbolic—a fresh start for software that respects users. Also, we needed a deadline. Without one, we'd keep polishing forever.
+
+## What Launch Means
+
+**Pricing Goes Live**: Free tiers remain free. Paid features activate. Usage-based pricing with hard caps—no surprise bills.
+
+**Support Opens**: Email support, Discord community, documentation, guides. We're here to help.
+
+**Open Source Releases**: Core engines go live on GitHub. Audit our code, contribute, or self-host.
+
+**Enterprise Programs**: Pilots for Chai.im (healthcare, legal, finance) and Shields AI (SMBs, enterprises).
+
+## Try Before Launch
+
+- **GrepCoin**: Already live at https://grepcoin.io
+- **Other products**: Sign-up pages live soon
+- **Launch countdown**: https://greplabs.com/launch
+
+## What's Next
+
+**January 2026**: User feedback, bug fixes, performance optimization
+**Q1 2026**: New features, integrations, partnerships
+**2026+**: Long-term product development, sustainable business, happy users
+
+We're building for the long term. No shortcuts, no compromises, just quality software.
+
+[Join us for launch →](/launch)
     `,
   },
 ]

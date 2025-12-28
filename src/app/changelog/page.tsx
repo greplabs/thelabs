@@ -62,7 +62,7 @@ const changelog = [
   },
   {
     version: '0.8.5',
-    date: 'December 2024',
+    date: 'December 2025',
     title: 'Pre-Launch Improvements',
     description: 'Final polish before public beta.',
     changes: [
@@ -97,7 +97,7 @@ const changelog = [
   },
   {
     version: '0.8.0',
-    date: 'November 2024',
+    date: 'November 2025',
     title: 'Multi-Product Integration',
     description: 'Unified authentication and cross-product features.',
     changes: [
@@ -131,7 +131,7 @@ const changelog = [
   },
   {
     version: '0.7.0',
-    date: 'October 2024',
+    date: 'October 2025',
     title: 'Performance Optimizations',
     description: 'Major performance improvements across all products.',
     changes: [
@@ -166,7 +166,7 @@ const changelog = [
   },
   {
     version: '0.6.0',
-    date: 'September 2024',
+    date: 'September 2025',
     title: 'Enterprise Features',
     description: 'Added features for business and enterprise users.',
     changes: [

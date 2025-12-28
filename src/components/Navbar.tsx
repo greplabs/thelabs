@@ -29,6 +29,12 @@ export default function Navbar() {
             <Link href="/blog" className="text-sm font-light text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Blog
             </Link>
+            <Link href="/open-source" className="text-sm font-light text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Open Source
+            </Link>
+            <Link href="/launch" className="text-sm font-light text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Launch
+            </Link>
             <ThemeToggle />
             <Link
               href="/fund"
@@ -77,6 +83,20 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
+            </Link>
+            <Link
+              href="/open-source"
+              className="block text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Open Source
+            </Link>
+            <Link
+              href="/launch"
+              className="block text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Launch
             </Link>
             <Link
               href="/fund"

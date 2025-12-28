@@ -15,6 +15,7 @@ export default function Footer() {
   ]
 
   const company = [
+    { name: 'Launch', url: '/launch' },
     { name: 'Fund Us', url: '/fund' },
     { name: 'Open Source', url: '/open-source' },
     { name: 'Security', url: '/security' },

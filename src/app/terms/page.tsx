@@ -18,7 +18,7 @@ export default function TermsPage() {
             Terms of Service
           </h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 terminal-text">
-            Last Updated: December 26, 2024
+            Last Updated: December 26, 2025
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-16 font-light">
             Effective Date: January 1, 2026
@@ -79,7 +79,7 @@ export default function TermsPage() {
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
                   <strong>How It Works:</strong> Users install Shields AI on devices or networks, configure DNS settings, and the service 
-                  filters all DNS queries in real-time using eBPF kernel filtering (<1ms latency). ML models detect threats, blocklists filter 
+                  filters all DNS queries in real-time using eBPF kernel filtering ({'<'}1ms latency). ML models detect threats, blocklists filter 
                   known bad domains, and custom rules allow user control. Free tier includes basic filtering (up to 5 devices, 100K queries/month). 
                   Home ($4.99/month) adds unlimited devices and AI detection. Family ($9.99/month) adds profiles and parental controls. Enterprise 
                   ($499/month) includes unlimited users and custom deployment.

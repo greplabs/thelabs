@@ -80,7 +80,7 @@ export default function About() {
             <h3 className="text-3xl font-extralight text-gray-900 dark:text-white mb-6">Our Story</h3>
             <div className="space-y-4 text-gray-600 dark:text-gray-400 font-light leading-relaxed">
               <p>
-                GrepLabs started in June 2024 as an experiment: what if we built software the way it should be built? 
+                GrepLabs started in June 2025 as an experiment: what if we built software the way it should be built? 
                 Privacy-first, open-source at the core, and powered by AI—but AI that processes locally, 
                 respecting user autonomy.
               </p>
@@ -91,7 +91,7 @@ export default function About() {
                 by clear principles: privacy, transparency, and user empowerment.
               </p>
               <p>
-                During our incubation period (June-December 2024), we validated concepts, built core infrastructure, 
+                During our incubation period (June-December 2025), we validated concepts, built core infrastructure, 
                 and established early communities. GrepCoin's platform grew to 91 API endpoints and 112 React components. 
                 We designed Chai.im's privacy-first messaging architecture, Shields AI's sub-millisecond DNS security, 
                 and Hippo's local-first file indexing system.

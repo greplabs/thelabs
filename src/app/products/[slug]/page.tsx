@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, ExternalLink, CheckCircle, Code, DollarSign, Calendar, Zap, Users, Shield, Database, Sparkles, Play, Lock, Search, ArrowRight, Gamepad2, MessageSquare, Shield as ShieldIcon, Folder, TrendingUp, BarChart3, Globe, FileText, Cpu, Server, Network, AlertTriangle, HelpCircle, BookOpen, GitBranch } from 'lucide-react'
 import CodeBlock, { codeExamples } from '@/components/CodeBlock'
+import Accordion from '@/components/Accordion'
+import Tabs from '@/components/Tabs'
 
 const products = {
   grepcoin: {
@@ -10,13 +12,13 @@ const products = {
     description: 'Quality games first, token rewards second. 9 polished arcade games with optional crypto integration.',
     longDescription: `GrepCoin is a gaming platform where gameplay comes first. Built on Base L2, it features 9 polished arcade games with optional token rewards. This is not play-to-earn hype—these are real games with sustainable economics.
 
-Unlike failed P2E projects, GrepCoin focuses on genuine entertainment value. Token rewards are optional bonuses, not the core experience. During our 6-month incubation (June-December 2024), we built quality games first, then added blockchain integration.`,
+Unlike failed P2E projects, GrepCoin focuses on genuine entertainment value. Token rewards are optional bonuses, not the core experience. During our 6-month incubation (June-December 2025), we built quality games first, then added blockchain integration.`,
     icon: Gamepad2,
     color: 'purple',
     url: 'https://grepcoin.io',
     status: 'Live',
     launchDate: 'Q1 2026 (Mainnet)',
-    incubation: 'June - December 2024',
+    incubation: 'June - December 2025',
     howItWorks: {
       overview: 'GrepCoin combines traditional arcade gaming with blockchain rewards. Play games, earn GREP tokens, stake for yield, and participate in governance.',
       steps: [
@@ -161,7 +163,7 @@ Unlike failed P2E projects, GrepCoin focuses on genuine entertainment value. Tok
       annual: '$360-600K/year (market-dependent)',
     },
     development: {
-      timeline: '6 months (June-December 2024)',
+      timeline: '6 months (June-December 2025)',
       achievements: [
         'Built 9 complete games through human-AI collaboration',
         'Deployed 4 smart contracts (Token, Staking, Achievements, Governance)',
@@ -185,7 +187,7 @@ Consumer messaging is dominated by WhatsApp and Telegram—we're not competing t
     url: 'https://chai.im',
     status: 'Enterprise Beta',
     launchDate: 'Q2 2026 (Enterprise Beta)',
-    incubation: 'July - December 2024',
+    incubation: 'July - December 2025',
     howItWorks: {
       overview: 'Chai.im uses Signal Protocol for end-to-end encryption, processes AI locally on your device, and supports hardware key authentication for maximum security.',
       steps: [
@@ -344,7 +346,7 @@ Consumer messaging is dominated by WhatsApp and Telegram—we're not competing t
       annual: '$240-480K/year',
     },
     development: {
-      timeline: 'Research & Design (July-December 2024)',
+      timeline: 'Research & Design (July-December 2025)',
       achievements: [
         'Designed Signal Protocol architecture (X3DH + Double Ratchet)',
         'Created local AI processing pipeline (WebAssembly-based)',
@@ -368,7 +370,7 @@ This is our flagship product with the clearest path to market. The SMB segment i
     url: '#',
     status: 'Flagship',
     launchDate: 'Q1 2026 (Alpha)',
-    incubation: 'August - December 2024',
+    incubation: 'August - December 2025',
     howItWorks: {
       overview: 'Shields AI filters DNS queries at the kernel level using eBPF, uses ML models for threat detection, and maintains <1ms latency while blocking threats in real-time.',
       steps: [
@@ -540,7 +542,7 @@ This is our flagship product with the clearest path to market. The SMB segment i
       annual: '$720K-1.2M/year',
     },
     development: {
-      timeline: 'Research & Design (August-December 2024)',
+      timeline: 'Research & Design (August-December 2025)',
       achievements: [
         'Benchmarked existing DNS solutions (50+ performance tests)',
         'Designed eBPF kernel-level filtering architecture',
@@ -558,13 +560,13 @@ This is our flagship product with the clearest path to market. The SMB segment i
     description: 'Local-first file organizer with AI-powered semantic search. Index 100K+ files, find anything instantly with local AI.',
     longDescription: `Hippo is a local-first file organizer that indexes your files and enables natural language search. All processing happens on your device using vector embeddings and semantic search. The platform can index 100K+ files and search them instantly.
 
-During our design phase (September-December 2024), we designed the local-first architecture, planned vector embedding strategy with quantized models, created incremental indexing system, and built prototype tests showing 50K files indexed in 8 minutes with <100ms search latency.`,
+During our design phase (September-December 2025), we designed the local-first architecture, planned vector embedding strategy with quantized models, created incremental indexing system, and built prototype tests showing 50K files indexed in 8 minutes with <100ms search latency.`,
     icon: Folder,
     color: 'orange',
     url: '#',
     status: 'Development',
     launchDate: 'Q3 2026 (MVP)',
-    incubation: 'September - December 2024',
+    incubation: 'September - December 2025',
     howItWorks: {
       overview: 'Hippo indexes your files locally, creates vector embeddings for semantic search, processes everything on your device, and optionally syncs encrypted across devices.',
       steps: [
@@ -734,7 +736,7 @@ During our design phase (September-December 2024), we designed the local-first a
       annual: '$480-840K/year',
     },
     development: {
-      timeline: 'Design & Prototype (September-December 2024)',
+      timeline: 'Design & Prototype (September-December 2025)',
       achievements: [
         'Designed local-first architecture (SQLite + vector DBs)',
         'Planned vector embedding strategy (quantized models)',
@@ -857,7 +859,7 @@ export default async function ProductPage({
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-extralight text-gray-900 dark:text-white mb-6">Quick Start</h2>
-            <CodeBlock code={product.code} language="bash" showCopy={true} />
+            <CodeBlock code={product.code} showCopy={true} />
           </div>
         </section>
       )}
@@ -1454,7 +1456,7 @@ export default async function ProductPage({
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - Interactive Accordion */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -1467,91 +1469,113 @@ export default async function ProductPage({
             </h2>
           </div>
 
-          <div className="space-y-6">
-            {slug === 'grepcoin' && (
-              <>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">Is GrepCoin a play-to-earn game?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">GrepCoin focuses on gameplay first, with token rewards as optional bonuses. Unlike failed P2E projects, we built quality games first, then added blockchain integration. The games are fun and engaging even without crypto rewards.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How do I earn GREP tokens?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">You earn tokens by playing games (score-based rewards), completing daily challenges, winning tournaments, and participating in governance. Staking tokens also earns yield from platform revenue.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">Are smart contracts audited?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Yes, our smart contracts are audited by CertiK. We use OpenZeppelin's battle-tested libraries and have emergency pause functionality. All contracts are open source and verifiable on Base network.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">What is the token supply?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">GREP has a fixed supply of 500 million tokens with no inflation. Tokens are distributed through staking rewards, gameplay rewards, NFT purchases, and governance participation. Burn mechanisms make the token deflationary over time.</p>
-                </div>
-              </>
-            )}
+          {slug === 'grepcoin' && (
+            <Accordion
+              items={[
+                {
+                  title: 'Is GrepCoin a play-to-earn game?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">GrepCoin focuses on gameplay first, with token rewards as optional bonuses. Unlike failed P2E projects, we built quality games first, then added blockchain integration. The games are fun and engaging even without crypto rewards.</p>,
+                },
+                {
+                  title: 'How do I earn GREP tokens?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">You earn tokens by playing games (score-based rewards), completing daily challenges, winning tournaments, and participating in governance. Staking tokens also earns yield from platform revenue.</p>,
+                },
+                {
+                  title: 'Are smart contracts audited?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Yes, our smart contracts are audited by CertiK. We use OpenZeppelin's battle-tested libraries and have emergency pause functionality. All contracts are open source and verifiable on Base network.</p>,
+                },
+                {
+                  title: 'What is the token supply?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">GREP has a fixed supply of 500 million tokens with no inflation. Tokens are distributed through staking rewards, gameplay rewards, NFT purchases, and governance participation. Burn mechanisms make the token deflationary over time.</p>,
+                },
+                {
+                  title: 'How does staking work?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Stake GREP tokens in one of 4 tiers (Bronze, Silver, Gold, Platinum) to earn real yield from platform revenue. Higher tiers offer better APY. Staking is time-locked for security and commitment.</p>,
+                },
+              ]}
+            />
+          )}
 
-            {slug === 'chai' && (
-              <>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">Is Chai.im truly private?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Yes. Messages are end-to-end encrypted using Signal Protocol, which means we cannot read your messages. AI features run locally on your device—no message content ever leaves your device unencrypted. We minimize data collection and process everything locally where possible.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">What makes Chai.im different from Signal?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Chai.im adds enterprise features like HIPAA compliance, SSO integration, audit logging, and hardware key authentication (FIDO2/WebAuthn). We also offer a terminal client for developers and focus on regulated industries that need compliance features.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How does local AI processing work?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">AI features (summaries, smart replies, translations) run entirely on your device using WebAssembly and TensorFlow.js. Small, optimized models provide useful features without sending data to the cloud. Everything processes locally for maximum privacy.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">Is Chai.im HIPAA compliant?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Enterprise plans include HIPAA-ready features like audit logs, compliance reporting, and business associate agreements (BAAs). We follow HIPAA guidelines for secure messaging in healthcare settings.</p>
-                </div>
-              </>
-            )}
+          {slug === 'chai' && (
+            <Accordion
+              items={[
+                {
+                  title: 'Is Chai.im truly private?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Yes. Messages are end-to-end encrypted using Signal Protocol, which means we cannot read your messages. AI features run locally on your device—no message content ever leaves your device unencrypted. We minimize data collection and process everything locally where possible.</p>,
+                },
+                {
+                  title: 'What makes Chai.im different from Signal?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Chai.im adds enterprise features like HIPAA compliance, SSO integration, audit logging, and hardware key authentication (FIDO2/WebAuthn). We also offer a terminal client for developers and focus on regulated industries that need compliance features.</p>,
+                },
+                {
+                  title: 'How does local AI processing work?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">AI features (summaries, smart replies, translations) run entirely on your device using WebAssembly and TensorFlow.js. Small, optimized models provide useful features without sending data to the cloud. Everything processes locally for maximum privacy.</p>,
+                },
+                {
+                  title: 'Is Chai.im HIPAA compliant?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Enterprise plans include HIPAA-ready features like audit logs, compliance reporting, and business associate agreements (BAAs). We follow HIPAA guidelines for secure messaging in healthcare settings.</p>,
+                },
+                {
+                  title: 'Can I use Chai.im from the terminal?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Yes! Chai.im includes a full-featured terminal UI (TUI) built with Ratatui. Perfect for developers who prefer command-line interfaces. All features are available via terminal, including encryption, group messaging, and file sharing.</p>,
+                },
+              ]}
+            />
+          )}
 
-            {slug === 'shields' && (
-              <>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How fast is Shields AI?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Shields AI processes DNS queries in under 1ms (P50 latency) using eBPF kernel-level filtering. It can handle 100K+ queries per second with minimal resource usage. You won't notice any impact on browsing speed.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How does AI threat detection work?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">ML models analyze domains for patterns indicating malware, phishing, or DGA (Domain Generation Algorithm) behavior. We use TensorFlow Lite models that run inference in {'<'}0.1ms per query. The system learns from threat intelligence feeds and continuously improves.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">Is Shields AI open source?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Yes, the core DNS filtering engine and basic features are open source (MIT license). You can self-host for free. Premium features like advanced AI detection, privacy scoring, and enterprise tools require a subscription.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How does usage-based pricing work?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Free tier includes 100K queries/month. Home plan charges $0.01 per 1K queries over the free tier, capped at $4.99/month. Family plan is $0.008 per 1K queries, capped at $9.99/month. Enterprise uses volume-based pricing with discounts.</p>
-                </div>
-              </>
-            )}
+          {slug === 'shields' && (
+            <Accordion
+              items={[
+                {
+                  title: 'How fast is Shields AI?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Shields AI processes DNS queries in under 1ms (P50 latency) using eBPF kernel-level filtering. It can handle 100K+ queries per second with minimal resource usage. You won't notice any impact on browsing speed.</p>,
+                },
+                {
+                  title: 'How does AI threat detection work?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">ML models analyze domains for patterns indicating malware, phishing, or DGA (Domain Generation Algorithm) behavior. We use TensorFlow Lite models that run inference in {'<'}0.1ms per query. The system learns from threat intelligence feeds and continuously improves.</p>,
+                },
+                {
+                  title: 'Is Shields AI open source?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Yes, the core DNS filtering engine and basic features are open source (MIT license). You can self-host for free. Premium features like advanced AI detection, privacy scoring, and enterprise tools require a subscription.</p>,
+                },
+                {
+                  title: 'How does usage-based pricing work?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Free tier includes 100K queries/month. Home plan charges $0.01 per 1K queries over the free tier, capped at $4.99/month. Family plan is $0.008 per 1K queries, capped at $9.99/month. Enterprise uses volume-based pricing with discounts.</p>,
+                },
+                {
+                  title: 'Can I self-host Shields AI?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Yes! The core engine is open source and can be self-hosted. Deploy via Docker, Kubernetes, or as a systemd service. Self-hosted instances get all free tier features. Premium features require a subscription for managed services.</p>,
+                },
+              ]}
+            />
+          )}
 
-            {slug === 'hippo' && (
-              <>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">Is my data private with Hippo?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Yes. All file indexing and AI processing happens locally on your device. We never see your files. Optional cloud sync is encrypted end-to-end with keys you control. There's zero telemetry and no data collection.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How fast is semantic search?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Semantic search queries return results in under 100ms, even with 100K+ indexed files. Vector embeddings enable fast similarity search, and the local Qdrant database is optimized for low-latency queries.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">What AI models does Hippo use?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Hippo uses Ollama for local AI processing. You can use models like Llama 3, Mistral, or CodeLlama. All models run entirely on your device. Quantized models keep resource usage low while maintaining quality.</p>
-                </div>
-                <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                  <h3 className="text-lg font-light text-gray-900 dark:text-white mb-2">How does usage-based pricing work?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light">Free tier indexes up to 10K files. Pro plan charges $0.002 per file over 10K, capped at $19.99/month. Team plans add $5 per user plus $0.001 per file. Enterprise uses custom pricing with volume discounts.</p>
-                </div>
-              </>
-            )}
-          </div>
+          {slug === 'hippo' && (
+            <Accordion
+              items={[
+                {
+                  title: 'Is my data private with Hippo?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Yes. All file indexing and AI processing happens locally on your device. We never see your files. Optional cloud sync is encrypted end-to-end with keys you control. There's zero telemetry and no data collection.</p>,
+                },
+                {
+                  title: 'How fast is semantic search?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Semantic search queries return results in under 100ms, even with 100K+ indexed files. Vector embeddings enable fast similarity search, and the local Qdrant database is optimized for low-latency queries.</p>,
+                },
+                {
+                  title: 'What AI models does Hippo use?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Hippo uses Ollama for local AI processing. You can use models like Llama 3, Mistral, or CodeLlama. All models run entirely on your device. Quantized models keep resource usage low while maintaining quality.</p>,
+                },
+                {
+                  title: 'How does usage-based pricing work?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Free tier indexes up to 10K files. Pro plan charges $0.002 per file over 10K, capped at $19.99/month. Team plans add $5 per user plus $0.001 per file. Enterprise uses custom pricing with volume discounts.</p>,
+                },
+                {
+                  title: 'What file types does Hippo support?',
+                  content: <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">Hippo supports 70+ file types including documents (PDF, DOC, MD), images (JPEG, PNG, GIF), videos (MP4, MOV), code (70+ languages), audio (MP3, WAV), spreadsheets, presentations, and archives. Automatic metadata extraction for all supported types.</p>,
+                },
+              ]}
+            />
+          )}
         </div>
       </section>
 
