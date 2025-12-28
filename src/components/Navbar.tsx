@@ -37,10 +37,16 @@ export default function Navbar() {
             </Link>
             <ThemeToggle />
             <Link
-              href="/fund"
+              href="/login"
+              className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              Log in
+            </Link>
+            <Link
+              href="/signup"
               className="px-4 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
             >
-              Fund Us
+              Sign up
             </Link>
           </div>
 
@@ -98,13 +104,22 @@ export default function Navbar() {
             >
               Launch
             </Link>
-            <Link
-              href="/fund"
-              className="block px-4 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Fund Us
-            </Link>
+            <div className="pt-3 border-t border-gray-200 dark:border-gray-800 flex flex-col gap-2">
+              <Link
+                href="/login"
+                className="block px-4 py-1.5 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-center"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className="block px-4 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Sign up
+              </Link>
+            </div>
           </div>
         )}
       </div>
