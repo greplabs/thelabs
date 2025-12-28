@@ -73,22 +73,23 @@ export default function Home() {
             <Sparkles className="w-4 h-4 text-purple-500 dark:text-pink-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Coming Soon</span>
           </div>
-
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-extralight tracking-tighter text-gray-900 dark:text-white mb-6 leading-none">
-            <span className="gradient-text">`
+          
+          {/* Main heading - ASCII Art */}
+          <div className="hidden md:block mb-8 max-w-full overflow-x-auto">
+            <pre className="ascii-art text-gray-400 dark:text-gray-500 mx-auto select-none font-mono relative">
+{`
    ██████╗ ██████╗ ███████╗██████╗ ██╗      █████╗ ██████╗ ███████╗
   ██╔════╝ ██╔══██╗██╔════╝██╔══██╗██║     ██╔══██╗██╔══██╗██╔════╝
   ██║  ███╗██████╔╝█████╗  ██████╔╝██║     ███████║██████╔╝███████╗
   ██║   ██║██╔══██╗██╔══╝  ██╔═══╝ ██║     ██╔══██║██╔══██╗╚════██║
   ╚██████╔╝██║  ██║███████╗██║     ███████╗██║  ██║██████╔╝███████║
-   ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝`</span>
+   ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝`}
+            </pre>
+          </div>
+          {/* Mobile fallback */}
+          <h1 className="md:hidden text-5xl font-extralight tracking-tighter text-gray-900 dark:text-white mb-6 leading-none">
+            <span className="gradient-text">GrepLabs</span>
           </h1>
-
-          {/* Launch date */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-light text-gray-600 dark:text-gray-400 mb-12 tracking-wide">
-            Launching January 1, 2026
-          </p>
 
           {/* Countdown Timer */}
           <div className="mb-12 flex justify-center">
