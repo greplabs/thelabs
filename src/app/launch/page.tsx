@@ -73,8 +73,20 @@ export default function LaunchPage() {
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Official Launch</span>
           </div>
 
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-extralight tracking-tighter text-gray-900 dark:text-white mb-6 leading-none">
+          {/* Main heading - ASCII Art */}
+          <div className="hidden md:block mb-8 max-w-full overflow-x-auto">
+            <pre className="ascii-art text-gray-400 dark:text-gray-500 mx-auto select-none font-mono relative">
+{`
+   ██████╗ ██████╗ ███████╗██████╗ ██╗      █████╗ ██████╗ ███████╗
+  ██╔════╝ ██╔══██╗██╔════╝██╔══██╗██║     ██╔══██╗██╔══██╗██╔════╝
+  ██║  ███╗██████╔╝█████╗  ██████╔╝██║     ███████║██████╔╝███████╗
+  ██║   ██║██╔══██╗██╔══╝  ██╔═══╝ ██║     ██╔══██║██╔══██╗╚════██║
+  ╚██████╔╝██║  ██║███████╗██║     ███████╗██║  ██║██████╔╝███████║
+   ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝`}
+            </pre>
+          </div>
+          {/* Mobile fallback */}
+          <h1 className="md:hidden text-5xl font-extralight tracking-tighter text-gray-900 dark:text-white mb-6 leading-none">
             <span className="gradient-text">GrepLabs</span>
           </h1>
 
