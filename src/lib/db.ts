@@ -307,3 +307,103 @@ export async function getUserCount(): Promise<number> {
   `
   return parseInt(result[0].count, 10)
 }
+
+// ============================================
+// SSO User Management
+// ============================================
+
+// Create or get user from OAuth provider
+export async function findOrCreateOAuthUser(
+  provider: 'google' | 'github',
+  providerId: string,
+  email: string,
+  name: string | null,
+  avatarUrl: string | null
+): Promise<{ success: boolean; user?: User; isNew?: boolean; error?: string }> {
+  try {
+    const sql = getDb()
+
+    // First, check if user exists with this provider ID
+    const existingByProvider = await sql`
+      SELECT id, email, name, created_at, email_verified, role, avatar_url, auth_provider, plan
+      FROM users
+      WHERE auth_provider = ${provider} AND provider_id = ${providerId} AND is_active = true
+    `
+
+    if (existingByProvider[0]) {
+      // Update avatar if changed
+      if (avatarUrl && existingByProvider[0].avatar_url !== avatarUrl) {
+        await sql`
+          UPDATE users SET avatar_url = ${avatarUrl}, updated_at = NOW()
+          WHERE id = ${existingByProvider[0].id}
+        `
+      }
+      return { success: true, user: existingByProvider[0] as User, isNew: false }
+    }
+
+    // Check if user exists with this email (might have signed up with email first)
+    const existingByEmail = await sql`
+      SELECT id, email, name, created_at, email_verified, role, avatar_url, auth_provider, plan
+      FROM users
+      WHERE email = ${email.toLowerCase().trim()} AND is_active = true
+    `
+
+    if (existingByEmail[0]) {
+      // Link the OAuth provider to existing account
+      await sql`
+        UPDATE users
+        SET auth_provider = ${provider},
+            provider_id = ${providerId},
+            avatar_url = COALESCE(${avatarUrl}, avatar_url),
+            email_verified = true,
+            email_verified_at = NOW(),
+            updated_at = NOW()
+        WHERE id = ${existingByEmail[0].id}
+      `
+
+      const updated = await sql`
+        SELECT id, email, name, created_at, email_verified, role, avatar_url, auth_provider, plan
+        FROM users WHERE id = ${existingByEmail[0].id}
+      `
+
+      return { success: true, user: updated[0] as User, isNew: false }
+    }
+
+    // Create new user
+    const result = await sql`
+      INSERT INTO users (email, name, avatar_url, auth_provider, provider_id, email_verified, email_verified_at)
+      VALUES (
+        ${email.toLowerCase().trim()},
+        ${name},
+        ${avatarUrl},
+        ${provider},
+        ${providerId},
+        true,
+        NOW()
+      )
+      RETURNING id, email, name, created_at, email_verified, role, avatar_url, auth_provider, plan
+    `
+
+    return { success: true, user: result[0] as User, isNew: true }
+  } catch (error: unknown) {
+    console.error('Error finding/creating OAuth user:', error)
+    if (error && typeof error === 'object' && 'code' in error && error.code === '23505') {
+      return { success: false, error: 'Email already registered with a different account' }
+    }
+    return { success: false, error: 'Failed to authenticate with provider' }
+  }
+}
+
+// Get user by provider
+export async function getUserByProvider(
+  provider: 'google' | 'github',
+  providerId: string
+): Promise<User | null> {
+  const sql = getDb()
+  const result = await sql`
+    SELECT id, email, name, created_at, email_verified, role, avatar_url, auth_provider, plan
+    FROM users
+    WHERE auth_provider = ${provider} AND provider_id = ${providerId} AND is_active = true
+  `
+  return result[0] as User | null
+}
