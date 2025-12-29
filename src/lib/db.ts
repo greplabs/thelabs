@@ -407,3 +407,228 @@ export async function getUserByProvider(
   `
   return result[0] as User | null
 }
+
+// ============================================
+// API Key Management
+// ============================================
+
+export interface ApiKey {
+  id: number
+  user_id: number
+  name: string
+  key_prefix: string
+  created_at: Date
+  last_used_at: Date | null
+  expires_at: Date | null
+  is_active: boolean
+  scopes: string[]
+  usage_count: number
+}
+
+// Initialize API keys table
+export async function initializeApiKeysTable() {
+  const sql = getDb()
+  await sql`
+    CREATE TABLE IF NOT EXISTS api_keys (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      name VARCHAR(255) NOT NULL,
+      key_hash VARCHAR(255) NOT NULL,
+      key_prefix VARCHAR(12) NOT NULL,
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      last_used_at TIMESTAMP WITH TIME ZONE,
+      expires_at TIMESTAMP WITH TIME ZONE,
+      is_active BOOLEAN DEFAULT true,
+      scopes TEXT[] DEFAULT ARRAY['read'],
+      usage_count INTEGER DEFAULT 0
+    )
+  `
+  await sql`CREATE INDEX IF NOT EXISTS idx_api_keys_user ON api_keys(user_id)`
+  await sql`CREATE INDEX IF NOT EXISTS idx_api_keys_hash ON api_keys(key_hash)`
+}
+
+// Create API key
+export async function createApiKey(
+  userId: number,
+  name: string,
+  keyHash: string,
+  keyPrefix: string,
+  scopes: string[] = ['read'],
+  expiresAt?: Date
+): Promise<{ success: boolean; data?: ApiKey; error?: string }> {
+  try {
+    const sql = getDb()
+    const result = await sql`
+      INSERT INTO api_keys (user_id, name, key_hash, key_prefix, scopes, expires_at)
+      VALUES (${userId}, ${name}, ${keyHash}, ${keyPrefix}, ${scopes}, ${expiresAt || null})
+      RETURNING id, user_id, name, key_prefix, created_at, last_used_at, expires_at, is_active, scopes, usage_count
+    `
+    return { success: true, data: result[0] as ApiKey }
+  } catch (error) {
+    console.error('Error creating API key:', error)
+    return { success: false, error: 'Failed to create API key' }
+  }
+}
+
+// Get user's API keys (without hash)
+export async function getUserApiKeys(userId: number): Promise<ApiKey[]> {
+  const sql = getDb()
+  const result = await sql`
+    SELECT id, user_id, name, key_prefix, created_at, last_used_at, expires_at, is_active, scopes, usage_count
+    FROM api_keys
+    WHERE user_id = ${userId}
+    ORDER BY created_at DESC
+  `
+  return result as ApiKey[]
+}
+
+// Validate API key and get user
+export async function validateApiKey(rawApiKey: string): Promise<{ valid: boolean; user?: User; key?: ApiKey; error?: string }> {
+  try {
+    // Import hashApiKey dynamically to avoid circular dependency
+    const { hashApiKey, isValidApiKeyFormat } = await import('./api-keys')
+
+    // Check format first
+    if (!isValidApiKeyFormat(rawApiKey)) {
+      return { valid: false, error: 'Invalid API key format' }
+    }
+
+    const keyHash = hashApiKey(rawApiKey)
+    const sql = getDb()
+    const result = await sql`
+      SELECT
+        k.id as key_id, k.user_id, k.name as key_name, k.key_prefix, k.created_at as key_created_at,
+        k.last_used_at, k.expires_at, k.is_active as key_active, k.scopes, k.usage_count,
+        u.id, u.email, u.name, u.created_at, u.email_verified, u.role, u.avatar_url, u.auth_provider, u.plan
+      FROM api_keys k
+      JOIN users u ON k.user_id = u.id
+      WHERE k.key_hash = ${keyHash}
+        AND k.is_active = true
+        AND u.is_active = true
+        AND (k.expires_at IS NULL OR k.expires_at > NOW())
+    `
+
+    if (!result[0]) {
+      return { valid: false, error: 'Invalid or expired API key' }
+    }
+
+    const row = result[0]
+
+    return {
+      valid: true,
+      user: {
+        id: row.id,
+        email: row.email,
+        name: row.name,
+        created_at: row.created_at,
+        email_verified: row.email_verified,
+        role: row.role,
+        avatar_url: row.avatar_url,
+        auth_provider: row.auth_provider,
+        plan: row.plan
+      },
+      key: {
+        id: row.key_id,
+        user_id: row.user_id,
+        name: row.key_name,
+        key_prefix: row.key_prefix,
+        created_at: row.key_created_at,
+        last_used_at: row.last_used_at,
+        expires_at: row.expires_at,
+        is_active: row.key_active,
+        scopes: row.scopes,
+        usage_count: row.usage_count
+      }
+    }
+  } catch (error) {
+    console.error('Error validating API key:', error)
+    return { valid: false, error: 'Failed to validate API key' }
+  }
+}
+
+// Update API key usage count
+export async function updateApiKeyUsage(keyId: number): Promise<void> {
+  try {
+    const sql = getDb()
+    await sql`
+      UPDATE api_keys
+      SET last_used_at = NOW(), usage_count = usage_count + 1
+      WHERE id = ${keyId}
+    `
+  } catch (error) {
+    console.error('Error updating API key usage:', error)
+  }
+}
+
+// Delete API key
+export async function deleteApiKey(keyId: string | number, userId: number): Promise<{ success: boolean; error?: string }> {
+  try {
+    const sql = getDb()
+    const id = typeof keyId === 'string' ? parseInt(keyId, 10) : keyId
+    const result = await sql`
+      DELETE FROM api_keys
+      WHERE id = ${id} AND user_id = ${userId}
+      RETURNING id
+    `
+    if (result.length === 0) {
+      return { success: false, error: 'API key not found or unauthorized' }
+    }
+    return { success: true }
+  } catch (error) {
+    console.error('Error deleting API key:', error)
+    return { success: false, error: 'Failed to delete API key' }
+  }
+}
+
+// Revoke or reactivate API key
+export async function revokeApiKey(keyId: string | number, userId: number, revoke: boolean = true): Promise<{ success: boolean; error?: string }> {
+  try {
+    const sql = getDb()
+    const id = typeof keyId === 'string' ? parseInt(keyId, 10) : keyId
+    const result = await sql`
+      UPDATE api_keys
+      SET is_active = ${!revoke}
+      WHERE id = ${id} AND user_id = ${userId}
+      RETURNING id
+    `
+    if (result.length === 0) {
+      return { success: false, error: 'API key not found or unauthorized' }
+    }
+    return { success: true }
+  } catch (error) {
+    console.error('Error updating API key:', error)
+    return { success: false, error: 'Failed to update API key' }
+  }
+}
+
+// Get API key count for user
+export async function getApiKeyCount(userId: number): Promise<number> {
+  const sql = getDb()
+  const result = await sql`
+    SELECT COUNT(*) as count FROM api_keys
+    WHERE user_id = ${userId} AND is_active = true
+  `
+  return parseInt(result[0].count, 10)
+}
+
+// Get API usage stats for user
+export async function getApiUsageStats(userId: number): Promise<{
+  totalKeys: number
+  activeKeys: number
+  totalRequests: number
+}> {
+  const sql = getDb()
+  const result = await sql`
+    SELECT
+      COUNT(*) as total_keys,
+      COUNT(*) FILTER (WHERE is_active = true) as active_keys,
+      COALESCE(SUM(usage_count), 0) as total_requests
+    FROM api_keys
+    WHERE user_id = ${userId}
+  `
+  return {
+    totalKeys: parseInt(result[0].total_keys, 10),
+    activeKeys: parseInt(result[0].active_keys, 10),
+    totalRequests: parseInt(result[0].total_requests, 10)
+  }
+}
