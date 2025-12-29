@@ -1,7 +1,17 @@
 # Claude Session - GrepLabs Website
 
 **Last Updated:** December 28, 2025
-**Status:** API Key System Complete, Ready to Deploy
+**Status:** Deployed to Production
+
+---
+
+## Deployment URLs
+
+| Site | URL | Status |
+|------|-----|--------|
+| Main Website | https://greplabs.com | Live |
+| Internal Docs | https://website-greplabs.vercel.app | Live (Vercel Auth) |
+| GitHub Repo | https://github.com/greplabs/thelabs | Public |
 
 ---
 
@@ -155,6 +165,7 @@ NEXT_PUBLIC_SITE_URL=https://greplabs.com
 1. **OAuth Credentials** - User needs to create OAuth apps and add credentials to Vercel:
    - Google: https://console.cloud.google.com/apis/credentials
    - GitHub: https://github.com/settings/developers
+   - Callback URLs: `https://greplabs.com/api/auth/callback/google` and `https://greplabs.com/api/auth/callback/github`
 
 2. **More v1 API Endpoints** - Currently only `/api/v1/status` exists. Add:
    - User profile endpoint
@@ -169,6 +180,15 @@ NEXT_PUBLIC_SITE_URL=https://greplabs.com
 5. **Password Reset** - Forgot password flow
 
 6. **Profile Settings** - Let users update name, avatar, password
+
+## Completed This Session
+
+- Deployed greplabs-website to Vercel (https://greplabs.com)
+- Deployed greplabs-internal to Vercel (https://website-greplabs.vercel.app)
+- Full API key management system with dashboard UI
+- Rate limiting by plan (free/pro/enterprise)
+- v1 API with Bearer token authentication
+- Updated README with API documentation
 
 ---
 

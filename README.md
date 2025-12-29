@@ -131,6 +131,34 @@ src/
 | `/api/auth/google` | GET | Initiate Google OAuth |
 | `/api/auth/github` | GET | Initiate GitHub OAuth |
 
+### API Keys
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/keys` | GET | List user's API keys |
+| `/api/keys` | POST | Create new API key |
+| `/api/keys/[id]` | DELETE | Delete an API key |
+| `/api/keys/[id]` | PATCH | Revoke/reactivate a key |
+
+### v1 API (Requires API Key)
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/v1/status` | GET | API status and rate limit info |
+
+**Usage:**
+```bash
+curl -X GET "https://greplabs.com/api/v1/status" \
+  -H "Authorization: Bearer gl_your_api_key_here"
+```
+
+**Plan Limits:**
+| Plan | API Keys | Rate Limit |
+|------|----------|------------|
+| Free | 2 | 20 req/min |
+| Pro | 10 | 1,000 req/min |
+| Enterprise | 50 | 10,000 req/min |
+
 ### Newsletter
 
 | Endpoint | Method | Description |
@@ -170,6 +198,21 @@ CREATE TABLE newsletter_subscribers (
   email VARCHAR(255) UNIQUE NOT NULL,
   subscribed_at TIMESTAMP DEFAULT NOW()
 );
+
+-- API Keys
+CREATE TABLE api_keys (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  key_hash VARCHAR(255) NOT NULL,
+  key_prefix VARCHAR(12) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  last_used_at TIMESTAMP,
+  expires_at TIMESTAMP,
+  is_active BOOLEAN DEFAULT true,
+  scopes TEXT[] DEFAULT ARRAY['read'],
+  usage_count INTEGER DEFAULT 0
+);
 ```
 
 ## Deployment
@@ -207,6 +250,13 @@ We build with an open-core philosophy:
 | CLIs & SDKs | Premium support |
 
 Learn more: [greplabs.com/open-source](https://greplabs.com/open-source)
+
+## Related Repositories
+
+| Repository | Description | URL |
+|------------|-------------|-----|
+| greplabs-internal | Internal documentation & planning | [Private](https://github.com/greplabs/greplabs-internal) |
+| grepcoin | GrepCoin game & blockchain | [Live](https://grepcoin.io) |
 
 ## Contributing
 
