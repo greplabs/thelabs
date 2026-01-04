@@ -5,12 +5,12 @@ import CountdownTimer from '@/components/CountdownTimer'
 import Logo from '@/components/Logo'
 
 export const metadata: Metadata = {
-  title: 'Launch Day | GrepLabs - January 1, 2026',
-  description: 'Join us for the official launch of GrepLabs on January 1, 2026. Privacy-first software. Built for tomorrow.',
+  title: 'Launch Day | GrepLabs - January 10, 2026',
+  description: 'Join us for the official launch of GrepLabs on January 10, 2026. Privacy-first software. Built for tomorrow.',
 }
 
-// January 1, 2026 at midnight UTC
-const launchDate = new Date('2026-01-01T00:00:00Z')
+// January 10, 2026 at midnight UTC
+const launchDate = new Date('2026-01-10T00:00:00Z')
 
 const products = [
   {
@@ -92,7 +92,7 @@ export default function LaunchPage() {
 
           {/* Launch date */}
           <p className="text-xl md:text-2xl lg:text-3xl font-light text-gray-600 dark:text-gray-400 mb-12 tracking-wide">
-            Launching January 1, 2026
+            Launching January 10, 2026
           </p>
 
           {/* Countdown Timer */}
