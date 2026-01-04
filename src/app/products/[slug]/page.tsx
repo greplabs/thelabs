@@ -866,39 +866,39 @@ export default async function ProductPage({
 
       {/* How It Works Section */}
       {product.howItWorks && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <Play className="w-5 h-5 text-grep-purple dark:text-grep-pink" />
-                <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">How It Works</span>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 mb-3">
+                <Play className="w-4 h-4 text-grep-purple dark:text-grep-pink" />
+                <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">How It Works</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-4">
                 How <span className="gradient-text">{product.name}</span> Works
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
                 {product.howItWorks.overview}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
               {product.howItWorks.steps.map((step, index) => {
                 const StepIcon = step.icon
                 return (
                   <div
                     key={index}
-                    className="relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all"
+                    className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all text-center"
                   >
-                    <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-gradient-to-br from-grep-purple to-grep-pink flex items-center justify-center text-white text-sm font-medium">
+                    <div className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-gradient-to-br from-grep-purple to-grep-pink flex items-center justify-center text-white text-xs font-medium">
                       {index + 1}
                     </div>
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[product.color as keyof typeof colorClasses]} bg-opacity-10 flex items-center justify-center mb-4`}>
-                      <StepIcon className={`w-6 h-6 text-${product.color === 'purple' ? 'grep-purple' : product.color === 'blue' ? 'grep-blue' : product.color === 'green' ? 'grep-green' : 'grep-orange'}`} />
+                    <div className={`w-10 h-10 mx-auto rounded-lg bg-gradient-to-br ${colorClasses[product.color as keyof typeof colorClasses]} bg-opacity-10 flex items-center justify-center mb-3`}>
+                      <StepIcon className={`w-5 h-5 text-${product.color === 'purple' ? 'grep-purple' : product.color === 'blue' ? 'grep-blue' : product.color === 'green' ? 'grep-green' : 'grep-orange'}`} />
                     </div>
-                    <h3 className="text-xl font-light text-gray-900 dark:text-white mb-3">
+                    <h3 className="text-xs font-medium text-gray-900 dark:text-white mb-1">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                    <p className="text-[10px] text-gray-600 dark:text-gray-400 font-light leading-relaxed line-clamp-3">
                       {step.description}
                     </p>
                   </div>
@@ -911,26 +911,26 @@ export default async function ProductPage({
 
       {/* Use Cases Section */}
       {product.useCases && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8 text-center">
               Use <span className="gradient-text">Cases</span>
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {product.useCases.map((useCase, index) => (
                 <div
                   key={index}
-                  className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all"
+                  className="group bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all"
                 >
-                  <h3 className="text-xl font-light text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-2">
                     {useCase.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-4">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-3 line-clamp-3">
                     {useCase.description}
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                    <Users className="w-4 h-4" />
-                    <span className="font-light">{useCase.users}</span>
+                  <div className="flex items-center gap-1.5 text-[10px] text-gray-500 dark:text-gray-400">
+                    <Users className="w-3 h-3" />
+                    <span className="font-light truncate">{useCase.users}</span>
                   </div>
                 </div>
               ))}
@@ -940,35 +940,39 @@ export default async function ProductPage({
       )}
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8 text-center">
             Key <span className="gradient-text">Features</span>
           </h2>
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {product.features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all"
+                className="group bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-5 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all"
               >
-                <div className="flex items-start gap-4">
-                  <CheckCircle className="w-6 h-6 text-grep-purple dark:text-grep-pink flex-shrink-0 mt-1" />
-                  <div className="flex-1">
-                    <h3 className="text-xl font-light text-gray-900 dark:text-white mb-2">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-grep-purple dark:text-grep-pink flex-shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1.5">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-3">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-2 line-clamp-2">
                       {feature.description}
                     </p>
                     {feature.details && (
-                      <ul className="space-y-1">
-                        {feature.details.map((detail, idx) => (
-                          <li key={idx} className="text-sm text-gray-500 dark:text-gray-400 font-light flex items-start gap-2">
-                            <span className="text-grep-purple dark:text-grep-pink mt-1.5">•</span>
-                            <span>{detail}</span>
-                          </li>
+                      <div className="flex flex-wrap gap-1">
+                        {feature.details.slice(0, 3).map((detail, idx) => (
+                          <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">
+                            {detail}
+                          </span>
                         ))}
-                      </ul>
+                        {feature.details.length > 3 && (
+                          <span className="text-[10px] px-1.5 py-0.5 text-gray-400 dark:text-gray-500">
+                            +{feature.details.length - 3} more
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -980,42 +984,52 @@ export default async function ProductPage({
 
       {/* Pricing Section */}
       {product.pricing && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8 text-center">
               Pricing <span className="gradient-text">Plans</span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {Object.entries(product.pricing).map(([key, plan]) => (
                 <div
                   key={key}
-                  className={`bg-white dark:bg-black border-2 rounded-xl p-8 ${
+                  className={`group bg-white dark:bg-black border rounded-xl p-5 hover:shadow-lg hover:-translate-y-1 transition-all ${
                     key === 'pro' || key === 'home' || key === 'premium'
-                      ? 'border-grep-purple dark:border-grep-purple shadow-lg'
+                      ? 'border-grep-purple dark:border-grep-purple ring-1 ring-grep-purple/20'
                       : 'border-gray-200 dark:border-gray-800'
                   }`}
                 >
-                  <h3 className="text-2xl font-light text-gray-900 dark:text-white mb-2">
+                  {(key === 'pro' || key === 'home' || key === 'premium') && (
+                    <span className="inline-block text-[9px] font-medium px-2 py-0.5 mb-2 bg-gradient-to-r from-grep-purple to-grep-pink text-white rounded-full">
+                      Popular
+                    </span>
+                  )}
+                  <h3 className="text-base font-medium text-gray-900 dark:text-white mb-1">
                     {plan.title}
                   </h3>
-                  <div className="text-4xl font-extralight text-gray-900 dark:text-white mb-6">
+                  <div className="text-2xl font-light text-gray-900 dark:text-white mb-4">
                     {plan.price}
                   </div>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-600 dark:text-gray-400 font-light">
-                        <CheckCircle className="w-5 h-5 text-grep-purple dark:text-grep-pink flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
+                  <ul className="space-y-2 mb-4">
+                    {plan.features.slice(0, 4).map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-1.5 text-xs text-gray-600 dark:text-gray-400 font-light">
+                        <CheckCircle className="w-3.5 h-3.5 text-grep-purple dark:text-grep-pink flex-shrink-0 mt-0.5" />
+                        <span className="line-clamp-1">{feature}</span>
                       </li>
                     ))}
+                    {plan.features.length > 4 && (
+                      <li className="text-[10px] text-gray-400 dark:text-gray-500 pl-5">
+                        +{plan.features.length - 4} more features
+                      </li>
+                    )}
                   </ul>
                   {product.url !== '#' && (
                     <a
                       href={product.url}
-                      className={`inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-medium transition-all ${
+                      className={`inline-flex items-center justify-center w-full px-4 py-2 rounded-full text-sm font-medium transition-all ${
                         key === 'pro' || key === 'home' || key === 'premium'
                           ? 'bg-black dark:bg-white text-white dark:text-black hover:scale-105'
-                          : 'border-2 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-600'
+                          : 'border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-600'
                       }`}
                     >
                       Get Started
@@ -1030,16 +1044,13 @@ export default async function ProductPage({
 
       {/* Metrics Section */}
       {product.metrics && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-10 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-12 text-center">
-              Key <span className="gradient-text">Metrics</span>
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex flex-wrap justify-center gap-3">
               {Object.entries(product.metrics).map(([key, value]) => (
-                <div key={key} className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6 text-center hover:border-gray-300 dark:hover:border-gray-700 transition-all">
-                  <div className="text-3xl font-extralight text-gray-900 dark:text-white mb-2">{value}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-light capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                <div key={key} className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg px-5 py-3 text-center hover:border-gray-300 dark:hover:border-gray-700 transition-all">
+                  <div className="text-xl font-light text-gray-900 dark:text-white">{value}</div>
+                  <div className="text-[10px] text-gray-500 dark:text-gray-400 font-light uppercase tracking-wider">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
                 </div>
               ))}
             </div>

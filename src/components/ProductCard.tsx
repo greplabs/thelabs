@@ -33,61 +33,57 @@ export default function ProductCard({ product }: ProductCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="group relative bg-white dark:bg-dark-800 rounded-2xl p-8 border-2 border-gray-200 dark:border-dark-700 hover:border-primary-300 dark:hover:border-primary-700 transition-all duration-300 hover:shadow-xl"
+      transition={{ duration: 0.3 }}
+      className="group relative"
     >
-      {/* Status badge */}
-      <div className="absolute top-4 right-4">
-        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-          product.status === 'Live' 
-            ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-            : 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400'
-        }`}>
-          {product.status}
-        </span>
-      </div>
+      <Link
+        href={`/products/${product.id}`}
+        className="block bg-white dark:bg-black rounded-xl p-4 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all hover:shadow-lg hover:-translate-y-1"
+      >
+        <div className="text-center">
+          {/* Icon */}
+          <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${colorClasses[product.color as keyof typeof colorClasses]} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+            <Icon className="w-6 h-6 text-white" />
+          </div>
 
-      {/* Icon */}
-      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${colorClasses[product.color as keyof typeof colorClasses]} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-        <Icon className="w-8 h-8 text-white" />
-      </div>
+          {/* Content */}
+          <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">{product.name}</h3>
+          <p className="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 line-clamp-1">{product.tagline}</p>
 
-      {/* Content */}
-      <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
-      <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-4">{product.tagline}</p>
-      <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{product.description}</p>
+          {/* Status badge */}
+          <span className={`inline-block text-[9px] font-medium px-2 py-0.5 rounded-full ${
+            product.status === 'Live'
+              ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+          }`}>
+            {product.status}
+          </span>
 
-      {/* Features */}
-      <ul className="space-y-2 mb-6">
-        {product.features.map((feature, index) => (
-          <li key={index} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary-600 mr-2"></div>
-            {feature}
-          </li>
-        ))}
-      </ul>
+          {/* Features - compact */}
+          <div className="flex flex-wrap justify-center gap-1 mt-3">
+            {product.features.slice(0, 2).map((feature, index) => (
+              <span key={index} className="text-[9px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded">
+                {feature}
+              </span>
+            ))}
+          </div>
+        </div>
 
-      {/* CTA */}
-      <div className="flex items-center justify-between gap-4">
-        <Link
-          href={`/products/${product.id}`}
-          className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold group-hover:gap-3 transition-all duration-200"
+        {/* Hover gradient */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${colorClasses[product.color as keyof typeof colorClasses]} opacity-0 group-hover:opacity-[0.03] rounded-xl transition-opacity pointer-events-none`} />
+      </Link>
+
+      {/* External link */}
+      {product.url !== '#' && (
+        <a
+          href={product.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute top-2 right-2 text-[9px] p-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-full flex items-center transition-colors"
         >
-          Learn More
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-        {product.url !== '#' && (
-          <a
-            href={product.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors text-sm"
-          >
-            Visit Site
-            <ExternalLink className="w-3 h-3" />
-          </a>
-        )}
-      </div>
+          <ExternalLink className="w-2.5 h-2.5" />
+        </a>
+      )}
     </motion.div>
   )
 }

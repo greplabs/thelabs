@@ -6,12 +6,12 @@ import Logo from '@/components/Logo'
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
-  title: 'GrepLabs - Launching January 1, 2026',
-  description: 'Privacy-first software. Built for tomorrow. Join us for the official launch of GrepLabs on January 1, 2026.',
+  title: 'GrepLabs - Launching January 10, 2026',
+  description: 'Privacy-first software. Built for tomorrow. Join us for the official launch of GrepLabs on January 10, 2026.',
 }
 
-// January 1, 2026 at midnight UTC
-const launchDate = new Date('2026-01-01T00:00:00Z')
+// January 10, 2026 at midnight UTC
+const launchDate = new Date('2026-01-10T00:00:00Z')
 
 const products = [
   {
@@ -138,39 +138,37 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {products.map((product) => {
               const Icon = product.icon
               return (
-                <div
+                <Link
                   key={product.name}
-                  className="group block bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6 transition-all"
+                  href={`/products/${product.name === 'Shields AI' ? 'shields' : product.name === 'Chai.im' ? 'chai' : product.name.toLowerCase()}`}
+                  className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 transition-all hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center flex-shrink-0`}>
+                  <div className="text-center">
+                    <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-                          {product.name}
-                        </h3>
-                        <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
-                          product.status === 'Live' || product.status === 'Flagship'
-                            ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                            : product.status === 'Beta'
-                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
-                            : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
-                        }`}>
-                          {product.status}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        {product.description}
-                      </p>
-                    </div>
+                    <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 line-clamp-1">
+                      {product.description}
+                    </p>
+                    <span className={`inline-block text-[9px] font-medium px-2 py-0.5 rounded-full ${
+                      product.status === 'Live' || product.status === 'Flagship'
+                        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
+                        : product.status === 'Beta'
+                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                    }`}>
+                      {product.status}
+                    </span>
                   </div>
-                </div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-[0.03] rounded-xl transition-opacity pointer-events-none`} />
+                </Link>
               )
             })}
           </div>

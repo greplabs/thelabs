@@ -72,7 +72,7 @@ export default function ProductShowcase() {
         </motion.div>
 
         {/* Products grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {products.map((product, index) => {
             const Icon = product.icon
             return (
@@ -81,16 +81,29 @@ export default function ProductShowcase() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 className="group relative"
               >
                 <Link
                   href={`/products/${product.id}`}
-                  className="block bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all hover:shadow-lg"
+                  className="block bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 hover:border-gray-300 dark:hover:border-gray-700 transition-all hover:shadow-lg hover:-translate-y-1"
                 >
-                  {/* Status badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
+                  <div className="text-center">
+                    {/* Icon */}
+                    <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 line-clamp-1">
+                      {product.tagline}
+                    </p>
+
+                    {/* Status badge */}
+                    <span className={`inline-block text-[9px] font-medium px-2 py-0.5 rounded-full ${
                       product.status === 'Live'
                         ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
                         : product.status === 'Flagship'
@@ -101,58 +114,31 @@ export default function ProductShowcase() {
                     }`}>
                       {product.status}
                     </span>
-                  </div>
 
-                  <div className="flex items-start gap-4">
-                    {/* Icon */}
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-0.5">
-                        {product.name}
-                      </h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
-                        {product.tagline}
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-4">
-                        {product.description}
-                      </p>
-
-                      {/* Features */}
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {product.features.map((feature) => (
-                          <span
-                            key={feature}
-                            className="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* CTA */}
-                      <div className="flex items-center gap-4">
-                        <span className="text-sm text-gray-900 dark:text-white font-medium group-hover:underline flex items-center gap-1">
-                          Learn more <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    {/* Features - compact */}
+                    <div className="flex flex-wrap justify-center gap-1 mt-3">
+                      {product.features.slice(0, 2).map((feature) => (
+                        <span
+                          key={feature}
+                          className="text-[9px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded"
+                        >
+                          {feature}
                         </span>
-                      </div>
+                      ))}
                     </div>
                   </div>
 
                   {/* Hover gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-[0.02] rounded-xl transition-opacity pointer-events-none`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-[0.03] rounded-xl transition-opacity pointer-events-none`} />
                 </Link>
                 {product.url !== '#' && (
                   <a
                     href={product.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 left-4 text-[10px] px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-full flex items-center gap-1 transition-colors"
+                    className="absolute top-2 right-2 text-[9px] p-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-full flex items-center gap-0.5 transition-colors"
                   >
-                    Visit <ExternalLink className="w-2.5 h-2.5" />
+                    <ExternalLink className="w-2.5 h-2.5" />
                   </a>
                 )}
               </motion.div>
