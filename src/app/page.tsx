@@ -6,12 +6,12 @@ import Logo from '@/components/Logo'
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
-  title: 'GrepLabs - Launching January 10, 2026',
-  description: 'Privacy-first software. Built for tomorrow. Join us for the official launch of GrepLabs on January 10, 2026.',
+  title: 'GrepLabs - Launching February 18, 2026',
+  description: 'Privacy-first software. Built for tomorrow. Join us for the official launch of GrepLabs on February 18, 2026.',
 }
 
-// January 10, 2026 at midnight UTC
-const launchDate = new Date('2026-01-10T00:00:00Z')
+// February 18, 2026 at midnight UTC
+const launchDate = new Date('2026-02-18T00:00:00Z')
 
 const products = [
   {
