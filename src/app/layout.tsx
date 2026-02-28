@@ -16,17 +16,17 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'GrepLabs - Launching January 1, 2026',
-  description: 'Privacy-first software. Built for tomorrow. Four products. One mission. Zero compromise.',
-  keywords: ['GrepLabs', 'privacy', 'AI', 'encryption', 'blockchain', 'cybersecurity'],
+  title: 'GrepLabs - AI Agent Infrastructure Platform',
+  description: 'AI Agent Infrastructure Platform. Deploy, manage, and scale AI agents with MCP tool registry, LangGraph workflows, and real-time monitoring.',
+  keywords: ['GrepLabs', 'AI agents', 'MCP', 'LangGraph', 'infrastructure', 'privacy', 'AI'],
   authors: [{ name: 'GrepLabs LLC' }],
   icons: {
     icon: '/hippo-logo.svg',
     apple: '/hippo-logo.svg',
   },
   openGraph: {
-    title: 'GrepLabs - Launching January 1, 2026',
-    description: 'Privacy-first software. Built for tomorrow.',
+    title: 'GrepLabs - AI Agent Infrastructure Platform',
+    description: 'Deploy, manage, and scale AI agents at enterprise scale.',
     type: 'website',
   },
 }

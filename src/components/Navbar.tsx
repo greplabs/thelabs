@@ -29,6 +29,9 @@ export default function Navbar() {
             <Link href="/blog" className="text-sm font-light text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Blog
             </Link>
+            <Link href="/platform" className="text-sm font-light text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Platform
+            </Link>
             <Link href="/open-source" className="text-sm font-light text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Open Source
             </Link>
@@ -89,6 +92,13 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
+            </Link>
+            <Link
+              href="/platform"
+              className="block text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-light"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Platform
             </Link>
             <Link
               href="/open-source"

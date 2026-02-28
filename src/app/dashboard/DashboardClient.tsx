@@ -408,7 +408,7 @@ export default function DashboardClient({ user }: { user: DashboardUser }) {
                         disabled
                         className="mt-4 w-full py-2 px-4 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center gap-2 text-sm font-medium text-gray-400 dark:text-gray-500 cursor-not-allowed"
                       >
-                        Coming January 2026
+                        Coming March 2026
                       </button>
                     )}
                   </motion.div>
