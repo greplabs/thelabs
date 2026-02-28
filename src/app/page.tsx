@@ -1,17 +1,17 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Rocket, Sparkles, Shield, Gamepad2, MessageSquare, Folder, Bell } from 'lucide-react'
+import { ArrowRight, Rocket, Sparkles, Shield, Gamepad2, MessageSquare, Folder, Bell, Cpu, Layers, Code } from 'lucide-react'
 import CountdownTimer from '@/components/CountdownTimer'
 import Logo from '@/components/Logo'
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
-  title: 'GrepLabs - Launching February 18, 2026',
-  description: 'Privacy-first software. Built for tomorrow. Join us for the official launch of GrepLabs on February 18, 2026.',
+  title: 'GrepLabs - AI Agent Infrastructure Platform | Launching March 15, 2026',
+  description: 'AI Agent Infrastructure Platform. Deploy, manage, and scale AI agents with MCP tool registry, LangGraph workflows, and real-time monitoring. Launching March 15, 2026.',
 }
 
-// February 18, 2026 at midnight UTC
-const launchDate = new Date('2026-02-18T00:00:00Z')
+// March 15, 2026 at midnight UTC
+const launchDate = new Date('2026-03-15T00:00:00Z')
 
 const products = [
   {
@@ -44,6 +44,27 @@ const products = [
   },
 ]
 
+const platformHighlights = [
+  {
+    title: 'Agent Lifecycle',
+    description: 'Deploy and scale AI agents across LangGraph, AutoGen, and CrewAI',
+    icon: Layers,
+    gradient: 'from-indigo-500 to-purple-500',
+  },
+  {
+    title: 'MCP Registry',
+    description: 'Register, discover, and federate MCP tools across organizations',
+    icon: Code,
+    gradient: 'from-cyan-500 to-blue-500',
+  },
+  {
+    title: 'Real-Time Monitoring',
+    description: 'Live dashboards with agent fleet metrics and workflow tracking',
+    icon: Cpu,
+    gradient: 'from-pink-500 to-rose-500',
+  },
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-black">
@@ -69,11 +90,11 @@ export default function Home() {
           </div>
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-orange-500/10 border border-purple-500/20 dark:border-purple-500/30 mb-8 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-purple-500 dark:text-pink-500" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Coming Soon</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-indigo-500/20 dark:border-indigo-500/30 mb-8 backdrop-blur-sm">
+            <Cpu className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">AI Agent Infrastructure Platform</span>
           </div>
-          
+
           {/* Main heading - ASCII Art */}
           <div className="hidden md:block mb-8 max-w-full overflow-x-auto">
             <pre className="ascii-art text-gray-400 dark:text-gray-500 mx-auto select-none font-mono relative">
@@ -98,30 +119,75 @@ export default function Home() {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-            Privacy-first software. Built for tomorrow.
+            Deploy, manage, and scale AI agents at enterprise scale.
             <br />
-            <span className="text-gray-400 dark:text-gray-500">Four products. One mission. Zero compromise.</span>
+            <span className="text-gray-400 dark:text-gray-500">MCP tool registry. LangGraph workflows. Real-time monitoring.</span>
           </p>
 
           {/* Newsletter Signup */}
           <div className="mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Bell className="w-5 h-5 text-purple-500" />
+              <Bell className="w-5 h-5 text-indigo-500" />
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Get notified at launch</span>
             </div>
             <NewsletterSignup />
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/platform"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-medium transition-all hover:scale-105 hover:shadow-xl"
+            >
+              <Layers className="w-4 h-4" />
+              Explore Platform
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
             <a
               href="#products"
               className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-full font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-900"
             >
               <Rocket className="w-4 h-4" />
-              Preview Products
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              View Products
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Highlights */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-3">
+              AI Agent <span className="gradient-text">Infrastructure</span>
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 font-light max-w-xl mx-auto">
+              The complete platform for building and operating AI agent systems.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 mb-8">
+            {platformHighlights.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="group bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-5 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">{item.title}</h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-light leading-relaxed">{item.description}</p>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/platform"
+              className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              Learn more about the platform <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
         </div>
       </section>
@@ -181,8 +247,8 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
               { value: '4', label: 'Products' },
-              { value: 'Open', label: 'Core' },
-              { value: 'Privacy', label: 'First' },
+              { value: '6', label: 'Build Streams' },
+              { value: '$25.6B', label: 'Market' },
               { value: '2026', label: 'Launch' },
             ].map((stat) => (
               <div key={stat.label}>
@@ -198,14 +264,14 @@ export default function Home() {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            © 2025 GrepLabs LLC. All rights reserved.
+            &copy; 2026 GrepLabs LLC. All rights reserved.
           </p>
           {/* Hidden preview link - accessible at /preview */}
           <Link
             href="/preview"
             className="inline-block mt-4 text-[10px] text-gray-300 dark:text-gray-700 hover:text-gray-500 dark:hover:text-gray-500 transition-colors"
           >
-            •
+            &bull;
           </Link>
         </div>
       </footer>
