@@ -171,10 +171,10 @@ export default function Hero() {
                     <span className="terminal-string">vision.txt</span>
                   </div>
                   <div className="text-gray-300">
-                    <span className="terminal-comment">// We build innovative, AI-powered products</span>
+                    <span className="terminal-comment">{`// We build innovative, AI-powered products`}</span>
                   </div>
                   <div className="text-gray-300">
-                    <span className="terminal-comment">// that respect your privacy.</span>
+                    <span className="terminal-comment">{`// that respect your privacy.`}</span>
                   </div>
                   <div className="text-gray-300 mt-4">
                     <span className="terminal-prompt">→</span>{' '}
