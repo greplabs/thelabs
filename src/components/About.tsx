@@ -31,8 +31,8 @@ export default function About() {
     {
       role: 'Founder & CEO',
       name: 'Punit Mishra',
-      bio: 'Building privacy-first software with AI. Passionate about open source, cryptography, and creating tools that empower users.',
-      expertise: ['AI Development', 'Blockchain', 'Privacy Engineering'],
+      bio: 'Building enterprise software through human-AI collaboration. Focused on open-source, privacy-first architecture, and self-hosted solutions for organizations.',
+      expertise: ['AI Development', 'Enterprise Architecture', 'Open Source'],
     },
   ]
 
@@ -57,14 +57,14 @@ export default function About() {
             <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">About GrepLabs</span>
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-gray-900 dark:text-white mb-6">
-            Building Tomorrow's
+            Enterprise Software
             <br />
-            <span className="gradient-text">Privacy-First Software</span>
+            <span className="gradient-text">Built with AI</span>
           </h2>
           <p className="text-xl font-light text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            GrepLabs was founded on a simple principle: software should serve users, not surveil them. 
-            We combine cutting-edge AI, cryptography, and open-source philosophy to build products that 
-            respect your privacy while delivering exceptional performance.
+            GrepLabs develops enterprise-grade software through human-AI collaboration. Every product
+            features open-source core components with premium tiers and self-hosted support options
+            for organizations that need control over their infrastructure.
           </p>
         </motion.div>
 
@@ -77,34 +77,30 @@ export default function About() {
           className="max-w-4xl mx-auto mb-20"
         >
           <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black border border-gray-200 dark:border-gray-800 rounded-2xl p-12">
-            <h3 className="text-3xl font-extralight text-gray-900 dark:text-white mb-6">Our Story</h3>
+            <h3 className="text-3xl font-extralight text-gray-900 dark:text-white mb-6">Built with AI, Designed for Enterprise</h3>
             <div className="space-y-4 text-gray-600 dark:text-gray-400 font-light leading-relaxed">
               <p>
-                GrepLabs started in June 2025 as an experiment: what if we built software the way it should be built? 
-                Privacy-first, open-source at the core, and powered by AI—but AI that processes locally, 
-                respecting user autonomy.
+                GrepLabs started as an experiment in human-AI collaboration. We asked: what happens when you
+                build software alongside AI agents, not just using AI as a tool? The results exceeded our expectations.
               </p>
               <p>
-                Our first product, GrepCoin, emerged from 6 months of intensive development. We built 9 browser games, 
-                created smart contracts for tokenomics and governance, and established a complete platform—all through 
-                human-AI collaboration. We discovered that this partnership could produce exceptional results when guided 
-                by clear principles: privacy, transparency, and user empowerment.
+                Our first product, GrepCoin, demonstrated the power of this approach. Working with Claude, we built
+                10 arcade games, smart contracts, and a complete gaming platform in under 6 months. The AI handled
+                code generation and iteration while humans directed architecture, design, and product decisions.
               </p>
               <p>
-                During our incubation period (June-December 2025), we validated concepts, built core infrastructure, 
-                and established early communities. GrepCoin's platform grew to 91 API endpoints and 112 React components. 
-                We designed Chai.im's privacy-first messaging architecture, Shields AI's sub-millisecond DNS security, 
-                and Hippo's local-first file indexing system.
+                We applied this methodology to enterprise challenges: Shield AI for DNS protection processes 100K+
+                queries per second with ML-powered threat detection. Chai.im implements Signal Protocol encryption
+                for HIPAA-compliant messaging. Hippo uses local AI models to organize 100K+ files with semantic search.
               </p>
               <p>
-                Today, we're preparing to launch four products that span messaging, file organization, network security, 
-                and gaming. Each product shares the same DNA: open-source core, freemium model, privacy-first 
-                architecture, and AI-powered intelligence—all built with local processing to preserve user privacy.
+                Every product follows our open-core model: core engines are MIT licensed for transparency and
+                self-hosting. Premium features, enterprise support, and managed cloud services are commercially
+                available for organizations that need them.
               </p>
               <p>
-                We measure success not just in revenue, but in trust earned, privacy protected, and communities 
-                built around our open-source projects. As we prepare for launch in January 2026, we're excited to 
-                share what we've built with the world.
+                As we launch in Q1 2026, we're excited to share these AI-built solutions with enterprises that
+                value privacy, performance, and the ability to deploy on their own infrastructure.
               </p>
             </div>
           </div>

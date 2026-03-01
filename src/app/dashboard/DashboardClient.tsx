@@ -24,9 +24,21 @@ import {
   Eye,
   EyeOff,
   X,
-  AlertCircle
+  AlertCircle,
+  Terminal,
+  Bot,
+  BarChart3,
+  Sparkles,
+  Zap,
+  Link2
 } from 'lucide-react'
 import Logo from '@/components/Logo'
+import WorkspacesTab from '@/components/dashboard/WorkspacesTab'
+import AgentsTab from '@/components/dashboard/AgentsTab'
+import AnalyticsTab from '@/components/dashboard/AnalyticsTab'
+import PromptBuilderTab from '@/components/dashboard/PromptBuilderTab'
+import SkillBuilderTab from '@/components/dashboard/SkillBuilderTab'
+import IntegrationsTab from '@/components/dashboard/IntegrationsTab'
 
 interface DashboardUser {
   id: number
@@ -52,7 +64,7 @@ interface ApiKey {
 export default function DashboardClient({ user }: { user: DashboardUser }) {
   const router = useRouter()
   const [loggingOut, setLoggingOut] = useState(false)
-  const [activeTab, setActiveTab] = useState<'overview' | 'api-keys'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'workspaces' | 'agents' | 'analytics' | 'prompts' | 'skills' | 'integrations' | 'api-keys'>('overview')
 
   // API Keys state
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([])
@@ -252,38 +264,45 @@ export default function DashboardClient({ user }: { user: DashboardUser }) {
       {/* Tabs */}
       <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex gap-8">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`py-4 border-b-2 text-sm font-medium transition-colors ${
-                activeTab === 'overview'
-                  ? 'border-purple-500 text-purple-600 dark:text-purple-400'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
-              }`}
-            >
-              Overview
-            </button>
-            <button
-              onClick={() => setActiveTab('api-keys')}
-              className={`py-4 border-b-2 text-sm font-medium transition-colors flex items-center gap-2 ${
-                activeTab === 'api-keys'
-                  ? 'border-purple-500 text-purple-600 dark:text-purple-400'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
-              }`}
-            >
-              <Key className="w-4 h-4" />
-              API Keys
-              <span className="text-xs px-1.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">
-                {apiKeys.length}/{maxKeys}
-              </span>
-            </button>
+          <nav className="flex gap-1 overflow-x-auto">
+            {[
+              { id: 'overview', label: 'Overview', icon: User },
+              { id: 'workspaces', label: 'Workspaces', icon: Terminal },
+              { id: 'agents', label: 'AI Agents', icon: Bot },
+              { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+              { id: 'prompts', label: 'Prompts', icon: Sparkles },
+              { id: 'skills', label: 'Skills', icon: Zap },
+              { id: 'integrations', label: 'Integrations', icon: Link2 },
+              { id: 'api-keys', label: 'API Keys', icon: Key },
+            ].map((tab) => {
+              const Icon = tab.icon
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                  className={`py-4 px-4 border-b-2 text-sm font-medium transition-colors flex items-center gap-2 whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? 'border-purple-500 text-purple-600 dark:text-purple-400'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {tab.label}
+                  {tab.id === 'api-keys' && (
+                    <span className="text-xs px-1.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">
+                      {apiKeys.length}/{maxKeys}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
           </nav>
         </div>
       </div>
 
       {/* Main */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {activeTab === 'overview' ? (
+        {activeTab === 'overview' && (
           <>
             {/* Welcome */}
             <motion.div
@@ -461,7 +480,16 @@ export default function DashboardClient({ user }: { user: DashboardUser }) {
               </div>
             </motion.div>
           </>
-        ) : (
+        )}
+
+        {activeTab === 'workspaces' && <WorkspacesTab />}
+        {activeTab === 'agents' && <AgentsTab />}
+        {activeTab === 'analytics' && <AnalyticsTab />}
+        {activeTab === 'prompts' && <PromptBuilderTab />}
+        {activeTab === 'skills' && <SkillBuilderTab />}
+        {activeTab === 'integrations' && <IntegrationsTab />}
+
+        {activeTab === 'api-keys' && (
           /* API Keys Tab */
           <motion.div
             initial={{ opacity: 0, y: 20 }}

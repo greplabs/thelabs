@@ -1058,67 +1058,57 @@ export default async function ProductPage({
         </section>
       )}
 
-      {/* Revenue Model Section */}
-      {product.revenue && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <DollarSign className="w-5 h-5 text-grep-purple dark:text-grep-pink" />
-                <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Revenue Model</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-4">
-                Open <span className="gradient-text">Revenue Strategy</span>
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 font-light max-w-3xl mx-auto">
-                Complete transparency about how {product.name} generates revenue and where the money goes.
+      {/* Open Source Section - replacing revenue model */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Code className="w-5 h-5 text-grep-purple dark:text-grep-pink" />
+              <span className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Open Core</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white mb-4">
+              Built with <span className="gradient-text">AI</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 font-light max-w-3xl mx-auto">
+              {product.name} was developed through human-AI collaboration. Core components are open source (MIT licensed).
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-6">
+              <Code className="w-8 h-8 text-green-500 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">Open Source Core</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Core engines and libraries are MIT licensed. Audit, contribute, or self-host.
               </p>
             </div>
-
-            <div className="bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-800 rounded-2xl p-8 mb-8">
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <h3 className="text-2xl font-extralight text-gray-900 dark:text-white mb-4">Total Revenue</h3>
-                  <div className="text-4xl font-extralight text-gray-900 dark:text-white mb-2">{product.revenue.total}</div>
-                  <div className="text-lg text-gray-600 dark:text-gray-400 font-light">{product.revenue.annual} annually</div>
-                </div>
-                <div>
-                  <Link
-                    href="/open-source"
-                    className="inline-flex items-center gap-2 text-gray-900 dark:text-white hover:text-grep-purple dark:hover:text-grep-pink transition-colors font-medium"
-                  >
-                    View Licensing Model
-                    <ExternalLink className="w-4 h-4" />
-                  </Link>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-light mt-2">
-                    See our open-core licensing approach
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-lg font-light text-gray-900 dark:text-white mb-4">Revenue Streams</h4>
-                {product.revenue.streams.map((stream, index) => (
-                  <div key={index} className="border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h5 className="text-lg font-light text-gray-900 dark:text-white">{stream.name}</h5>
-                      <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{stream.percentage}%</span>
-                    </div>
-                    <div className="text-2xl font-extralight text-gray-900 dark:text-white mb-2">{stream.amount}</div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 font-light">{stream.description}</p>
-                    <div className="mt-3 h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-grep-purple to-grep-pink rounded-full"
-                        style={{ width: `${stream.percentage}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-6">
+              <Shield className="w-8 h-8 text-purple-500 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">Premium Features</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Enterprise features, premium UI, and dedicated support available commercially.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-6">
+              <Server className="w-8 h-8 text-blue-500 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">Self-Hosted</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Deploy on your infrastructure with Docker or Kubernetes. Full control, full privacy.
+              </p>
             </div>
           </div>
-        </section>
-      )}
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/open-source"
+              className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline"
+            >
+              View open-source components
+              <ExternalLink className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Development Story */}
       {product.development && (

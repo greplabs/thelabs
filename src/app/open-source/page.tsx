@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, Github, Code, Shield, Users, Zap, Lock } from 'lucide-react'
+import { ArrowLeft, Github, Code, Shield, Users, Zap, Lock, ExternalLink, Star, GitFork, Folder, MessageSquare, Gamepad2 } from 'lucide-react'
 
 export default function OpenSourcePage() {
   return (
@@ -60,6 +60,112 @@ export default function OpenSourcePage() {
           </div>
         </section>
 
+        {/* Repositories */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-light text-gray-900 dark:text-white mb-8">Our Repositories</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <a
+              href="https://github.com/greplabs/hippo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-purple-500 dark:hover:border-purple-400 transition-colors group"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-3">
+                  <Folder className="w-6 h-6 text-orange-500" />
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Hippo</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Rust • MIT License</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-500" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                AI-powered file organizer with local processing. SQLite + Qdrant for semantic search, Ollama for local AI.
+              </p>
+              <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                <span className="flex items-center gap-1"><Star className="w-3 h-3" /> 2</span>
+                <span>100K+ file indexing</span>
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/punitmishra/shield-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-purple-500 dark:hover:border-purple-400 transition-colors group"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-3">
+                  <Shield className="w-6 h-6 text-green-500" />
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Shield AI</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Rust/TypeScript • MIT License</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-500" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                AI-powered DNS filtering with ML threat detection. 9 modular Rust crates, &lt;1ms latency, 100K+ QPS.
+              </p>
+              <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                <span>81 commits</span>
+                <span>Launching Feb 2026</span>
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/punitmishra/chai.im"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-purple-500 dark:hover:border-purple-400 transition-colors group"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-3">
+                  <MessageSquare className="w-6 h-6 text-blue-500" />
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Chai.im</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Rust/TypeScript • MIT License</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-500" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                End-to-end encrypted messaging with Signal Protocol. FIDO2 auth, local AI, HIPAA-ready.
+              </p>
+              <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                <span>73 commits</span>
+                <span>Enterprise Beta Q2 2026</span>
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/grepcoin/grepcoin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-purple-500 dark:hover:border-purple-400 transition-colors group"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-3">
+                  <Gamepad2 className="w-6 h-6 text-purple-500" />
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">GrepCoin</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">TypeScript/Solidity • MIT License</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-500" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                Developer arcade on Base L2. 10 games, GREP token, guild system, DAO governance.
+              </p>
+              <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                <span>91 API endpoints</span>
+                <span>Token launch Jan 2026</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
         {/* What's Open Source */}
         <section className="mb-16">
           <h2 className="text-3xl font-light text-gray-900 dark:text-white mb-8">Open Source Components</h2>
@@ -68,7 +174,7 @@ export default function OpenSourcePage() {
             <div className="p-6 border-l-4 border-green-500 bg-green-50 dark:bg-green-900/10">
               <h3 className="text-xl font-light text-gray-900 dark:text-white mb-2">Core Engines & Libraries</h3>
               <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
-                DNS filtering engine, encryption libraries, indexing algorithms, and protocol implementations.
+                DNS filtering engine (Rust), encryption libraries, indexing algorithms, and protocol implementations.
                 The fundamental technology that powers our products is open and auditable.
               </p>
             </div>
@@ -77,15 +183,15 @@ export default function OpenSourcePage() {
               <h3 className="text-xl font-light text-gray-900 dark:text-white mb-2">CLI Tools & SDKs</h3>
               <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
                 Command-line interfaces and software development kits for developers who want to integrate
-                or build on our technology.
+                or build on our technology. Self-host with Docker or Kubernetes.
               </p>
             </div>
 
             <div className="p-6 border-l-4 border-green-500 bg-green-50 dark:bg-green-900/10">
               <h3 className="text-xl font-light text-gray-900 dark:text-white mb-2">Security & Cryptography</h3>
               <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
-                All cryptographic implementations are open source. Verify our security claims yourself.
-                Trust through transparency.
+                All cryptographic implementations are open source. Signal Protocol for messaging,
+                WASM crypto in browser. Verify our security claims yourself.
               </p>
             </div>
           </div>
