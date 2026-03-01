@@ -8,33 +8,32 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const products = [
-    { name: 'Shields AI', url: '#', external: false, slug: 'shields' },
+    { name: 'Shield AI', url: '#', external: false, slug: 'shields' },
     { name: 'Hippo', url: '#', external: false, slug: 'hippo' },
     { name: 'GrepCoin', url: 'https://grepcoin.io', external: true, slug: 'grepcoin' },
     { name: 'Chai.im', url: 'https://chai.im', external: true, slug: 'chai' },
   ]
 
   const company = [
-    { name: 'Launch', url: '/launch' },
-    { name: 'Fund Us', url: '/fund' },
+    { name: 'Enterprise', url: '/enterprise' },
     { name: 'Open Source', url: '/open-source' },
     { name: 'Security', url: '/security' },
     { name: 'Contact', url: 'mailto:hello@greplabs.com' },
   ]
 
-      const resources = [
-        { name: 'Documentation', url: '/docs' },
-        { name: 'Blog', url: '/blog' },
-        { name: 'Changelog', url: '/changelog' },
-        { name: 'Open Source', url: '/open-source' },
-      ]
+  const resources = [
+    { name: 'Labs', url: '/labs' },
+    { name: 'Documentation', url: '/docs' },
+    { name: 'Blog', url: '/blog' },
+    { name: 'Changelog', url: '/changelog' },
+  ]
 
-      const learn = [
-        { name: 'Case Studies', url: '/case-studies' },
-        { name: 'Compare', url: '/compare' },
-        { name: 'Security', url: '/security' },
-        { name: 'Licensing', url: '/open-source' },
-      ]
+  const learn = [
+    { name: 'Dashboard', url: '/dashboard' },
+    { name: 'Case Studies', url: '/case-studies' },
+    { name: 'Compare', url: '/compare' },
+    { name: 'Licensing', url: '/open-source' },
+  ]
 
   const legal = [
     { name: 'Privacy Policy', url: '/privacy' },

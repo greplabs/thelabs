@@ -1,66 +1,111 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Rocket, Sparkles, Shield, Gamepad2, MessageSquare, Folder, Bell, Cpu, Layers, Code } from 'lucide-react'
-import CountdownTimer from '@/components/CountdownTimer'
+import { ArrowRight, Rocket, Sparkles, Shield, Gamepad2, MessageSquare, Folder, Bell, Cpu, Layers, Code, Bot, Zap, GitBranch, Container, Terminal, Boxes } from 'lucide-react'
 import Logo from '@/components/Logo'
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
-  title: 'GrepLabs - AI Agent Infrastructure Platform | Launching March 15, 2026',
-  description: 'AI Agent Infrastructure Platform. Deploy, manage, and scale AI agents with MCP tool registry, LangGraph workflows, and real-time monitoring. Launching March 15, 2026.',
+  title: 'GrepLabs - AI-Built Enterprise Software | Open Core Platform',
+  description: 'Enterprise software built with AI. Open-source core components with premium tiers and self-hosted support. DNS protection, secure messaging, file organization, and developer gaming.',
 }
-
-// March 15, 2026 at midnight UTC
-const launchDate = new Date('2026-03-15T00:00:00Z')
 
 const products = [
   {
-    name: 'Shields AI',
+    name: 'Shield AI',
     icon: Shield,
     gradient: 'from-green-500 to-cyan-500',
     description: 'AI-Powered DNS Protection',
-    status: 'Flagship',
+    status: 'Feb 1, 2026',
+    statusColor: 'green',
+    features: ['ML threat detection', '<1ms latency', '100K+ QPS'],
   },
   {
     name: 'GrepCoin',
     icon: Gamepad2,
     gradient: 'from-purple-500 to-pink-500',
     description: 'Developer Arcade on Base L2',
-    status: 'Live',
+    status: 'Jan 31, 2026',
+    statusColor: 'purple',
+    features: ['10 arcade games', 'GREP token', 'Guild system'],
   },
   {
     name: 'Chai.im',
     icon: MessageSquare,
     gradient: 'from-blue-500 to-cyan-500',
     description: 'Enterprise Encrypted Messaging',
-    status: 'Beta',
+    status: 'Q2 2026',
+    statusColor: 'blue',
+    features: ['Signal Protocol', 'HIPAA ready', 'Hardware keys'],
   },
   {
     name: 'Hippo',
     icon: Folder,
     gradient: 'from-orange-500 to-yellow-500',
-    description: 'The Memory That Never Forgets',
-    status: 'Development',
+    description: 'AI-Powered File Organization',
+    status: 'Q1 2026',
+    statusColor: 'orange',
+    features: ['Local AI', 'Semantic search', '100K+ files'],
   },
+]
+
+const aiAgents = [
+  {
+    name: 'Code Agent',
+    icon: Code,
+    description: 'Writes and refactors code across your codebase',
+    gradient: 'from-violet-500 to-purple-500',
+  },
+  {
+    name: 'Test Agent',
+    icon: GitBranch,
+    description: 'Generates tests and validates functionality',
+    gradient: 'from-emerald-500 to-green-500',
+  },
+  {
+    name: 'Deploy Agent',
+    icon: Container,
+    description: 'Manages deployments and infrastructure',
+    gradient: 'from-blue-500 to-cyan-500',
+  },
+  {
+    name: 'Monitor Agent',
+    icon: Cpu,
+    description: 'Tracks performance and detects issues',
+    gradient: 'from-amber-500 to-orange-500',
+  },
+  {
+    name: 'Optimize Agent',
+    icon: Zap,
+    description: 'Suggests improvements and optimizations',
+    gradient: 'from-pink-500 to-rose-500',
+  },
+]
+
+const sandboxes = [
+  { name: 'DevPods', icon: Terminal },
+  { name: 'Docker', icon: Container },
+  { name: 'VS Code Remote', icon: Code },
+  { name: 'GitHub Codespaces', icon: GitBranch },
+  { name: 'Railway', icon: Boxes },
 ]
 
 const platformHighlights = [
   {
-    title: 'Agent Lifecycle',
-    description: 'Deploy and scale AI agents across LangGraph, AutoGen, and CrewAI',
-    icon: Layers,
+    title: 'Built with AI',
+    description: 'Every product developed through human-AI collaboration using Claude, GPT, and custom agents',
+    icon: Bot,
     gradient: 'from-indigo-500 to-purple-500',
   },
   {
-    title: 'MCP Registry',
-    description: 'Register, discover, and federate MCP tools across organizations',
+    title: 'Open Core',
+    description: 'Core engines are MIT licensed. Premium UX commercially licensed. Self-host or use our cloud.',
     icon: Code,
     gradient: 'from-cyan-500 to-blue-500',
   },
   {
-    title: 'Real-Time Monitoring',
-    description: 'Live dashboards with agent fleet metrics and workflow tracking',
-    icon: Cpu,
+    title: 'Enterprise Ready',
+    description: 'HIPAA compliance, SOC2, hardware key auth, audit logs, and dedicated support',
+    icon: Shield,
     gradient: 'from-pink-500 to-rose-500',
   },
 ]
@@ -91,8 +136,8 @@ export default function Home() {
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-indigo-500/20 dark:border-indigo-500/30 mb-8 backdrop-blur-sm">
-            <Cpu className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">AI Agent Infrastructure Platform</span>
+            <Bot className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Enterprise Software Built with AI</span>
           </div>
 
           {/* Main heading - ASCII Art */}
@@ -112,17 +157,20 @@ export default function Home() {
             <span className="gradient-text">GrepLabs</span>
           </h1>
 
-          {/* Countdown Timer */}
-          <div className="mb-12 flex justify-center">
-            <CountdownTimer targetDate={launchDate} />
-          </div>
-
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-            Deploy, manage, and scale AI agents at enterprise scale.
+          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-light max-w-2xl mx-auto mb-6 leading-relaxed">
+            Privacy-first software built through human-AI collaboration.
             <br />
-            <span className="text-gray-400 dark:text-gray-500">MCP tool registry. LangGraph workflows. Real-time monitoring.</span>
+            <span className="text-gray-400 dark:text-gray-500">Open-source core. Premium tiers. Self-hosted support.</span>
           </p>
+
+          {/* Launch Status Badge */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              Launching Q1 2026
+            </span>
+          </div>
 
           {/* Newsletter Signup */}
           <div className="mb-12">
@@ -136,20 +184,20 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/platform"
+              href="/dashboard"
               className="group inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-medium transition-all hover:scale-105 hover:shadow-xl"
             >
               <Layers className="w-4 h-4" />
-              Explore Platform
+              Try Dashboard
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a
-              href="#products"
+            <Link
+              href="/labs"
               className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-full font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-900"
             >
-              <Rocket className="w-4 h-4" />
-              View Products
-            </a>
+              <Sparkles className="w-4 h-4" />
+              Explore Labs
+            </Link>
           </div>
         </div>
       </section>
@@ -159,10 +207,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-3">
-              AI Agent <span className="gradient-text">Infrastructure</span>
+              Why <span className="gradient-text">GrepLabs</span>
             </h2>
             <p className="text-gray-500 dark:text-gray-400 font-light max-w-xl mx-auto">
-              The complete platform for building and operating AI agent systems.
+              Enterprise-grade software built transparently with AI, open-source at the core.
             </p>
           </div>
 
@@ -183,10 +231,10 @@ export default function Home() {
 
           <div className="text-center">
             <Link
-              href="/platform"
+              href="/open-source"
               className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              Learn more about the platform <ArrowRight className="w-3 h-3" />
+              View open-source components <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
         </div>
@@ -197,41 +245,52 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-3">
-              What's <span className="gradient-text">Launching</span>
+              Our <span className="gradient-text">Products</span>
             </h2>
             <p className="text-gray-500 dark:text-gray-400 font-light max-w-xl mx-auto">
-              Four products. One vision. Privacy-first, AI-powered, open core software.
+              Four products built with AI. Open-source core with premium tiers and self-hosted support.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {products.map((product) => {
               const Icon = product.icon
+              const slug = product.name === 'Shield AI' ? 'shields' : product.name === 'Chai.im' ? 'chai' : product.name.toLowerCase()
               return (
                 <Link
                   key={product.name}
-                  href={`/products/${product.name === 'Shields AI' ? 'shields' : product.name === 'Chai.im' ? 'chai' : product.name.toLowerCase()}`}
-                  className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 transition-all hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1"
+                  href={`/products/${slug}`}
+                  className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-5 transition-all hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1"
                 >
-                  <div className="text-center">
-                    <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 flex-shrink-0 rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center group-hover:scale-110 transition-transform`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">
-                      {product.name}
-                    </h3>
-                    <p className="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 line-clamp-1">
-                      {product.description}
-                    </p>
-                    <span className={`inline-block text-[9px] font-medium px-2 py-0.5 rounded-full ${
-                      product.status === 'Live' || product.status === 'Flagship'
-                        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                        : product.status === 'Beta'
-                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
-                        : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
-                    }`}>
-                      {product.status}
-                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="text-sm font-medium text-gray-900 dark:text-white">
+                          {product.name}
+                        </h3>
+                        <span className={`text-[9px] font-medium px-2 py-0.5 rounded-full ${
+                          product.statusColor === 'green' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' :
+                          product.statusColor === 'purple' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400' :
+                          product.statusColor === 'blue' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400' :
+                          'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400'
+                        }`}>
+                          {product.status}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                        {product.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1">
+                        {product.features.map((feature) => (
+                          <span key={feature} className="text-[9px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-[0.03] rounded-xl transition-opacity pointer-events-none`} />
                 </Link>
@@ -241,15 +300,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* AI Agents Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-gray-900 dark:text-white mb-3">
+              AI Agents <span className="gradient-text">Power Everything</span>
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 font-light max-w-xl mx-auto">
+              Our products are built and maintained by specialized AI agents working alongside humans.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+            {aiAgents.map((agent) => {
+              const Icon = agent.icon
+              return (
+                <div key={agent.name} className="group bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all text-center">
+                  <div className={`w-10 h-10 mx-auto rounded-lg bg-gradient-to-br ${agent.gradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">{agent.name}</h3>
+                  <p className="text-[10px] text-gray-500 dark:text-gray-400 font-light">{agent.description}</p>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Sandbox Support */}
+          <div className="bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
+            <div className="text-center mb-4">
+              <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">Deploy Anywhere</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Integrated with your favorite development environments</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {sandboxes.map((sandbox) => {
+                const Icon = sandbox.icon
+                return (
+                  <div key={sandbox.name} className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <Icon className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">{sandbox.name}</span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-950">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
               { value: '4', label: 'Products' },
-              { value: '6', label: 'Build Streams' },
-              { value: '$25.6B', label: 'Market' },
-              { value: '2026', label: 'Launch' },
+              { value: '5', label: 'AI Agents' },
+              { value: '100%', label: 'Open Core' },
+              { value: 'Q1 2026', label: 'Launch' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-4xl font-extralight text-gray-900 dark:text-white mb-2">{stat.value}</div>
